@@ -3,12 +3,12 @@ class CommentairesController extends AppController {
 
 	var $name = 'Commentaires';
 
-	function admin_index() {
+	function index() {
 		$this->Commentaire->recursive = 0;
 		$this->set('commentaires', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid commentaire', true));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +16,7 @@ class CommentairesController extends AppController {
 		$this->set('commentaire', $this->Commentaire->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Commentaire->create();
 			if ($this->Commentaire->save($this->data)) {
@@ -33,7 +33,7 @@ class CommentairesController extends AppController {
 		$this->set(compact('employes', 'departements', 'utilisateurs', 'groupes'));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid commentaire', true));
 			$this->redirect(array('action' => 'index'));
@@ -56,7 +56,7 @@ class CommentairesController extends AppController {
 		$this->set(compact('employes', 'departements', 'utilisateurs', 'groupes'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for commentaire', true));
 			$this->redirect(array('action'=>'index'));

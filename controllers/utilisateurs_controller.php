@@ -2,13 +2,42 @@
 class UtilisateursController extends AppController {
 
 	var $name = 'Utilisateurs';
+	
+	function beforeFilter(){
+		parent::beforeFilter();
+	}
+    /*
+    * Login
+    * @param    -
+    * @return	-
+    **/
+    function login(){
+        // Vérifie que le compte est activé (basé sur l'userscope)
+        if($this->action == 'login' && !empty($this->data['Utilisateur']['pseudo'])){
+            $conditions = array('pseudo' => $this->data['Utilisateur']['pseudo'], 'actif <>' => 1);
+            if($this->Utilisateur->find('count', array('conditions' => $conditions))){
+                $this->Session->setFlash(__('Votre compte n\'a pas été activé',true), 'default', array(), 'auth');
+            }
+        }
+    }
 
-	function admin_index() {
+    /*
+    * Logout
+    * @param    -
+    * @return	-
+    **/
+    function logout(){
+        $this->Session->delete('acl_utilisateur');
+	$this->redirect($this->Auth->logout());
+    }
+	
+
+	function index() {
 		$this->Utilisateur->recursive = 0;
 		$this->set('utilisateurs', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid utilisateur', true));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +45,7 @@ class UtilisateursController extends AppController {
 		$this->set('utilisateur', $this->Utilisateur->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Utilisateur->create();
 			if ($this->Utilisateur->save($this->data)) {
@@ -32,7 +61,7 @@ class UtilisateursController extends AppController {
 		$this->set(compact('groupes', 'employes', 'departements'));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid utilisateur', true));
 			$this->redirect(array('action' => 'index'));
@@ -54,7 +83,7 @@ class UtilisateursController extends AppController {
 		$this->set(compact('groupes', 'employes', 'departements'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for utilisateur', true));
 			$this->redirect(array('action'=>'index'));

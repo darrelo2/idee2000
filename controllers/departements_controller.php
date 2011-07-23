@@ -3,12 +3,12 @@ class DepartementsController extends AppController {
 
 	var $name = 'Departements';
 
-	function admin_index() {
+	function index() {
 		$this->Departement->recursive = 0;
 		$this->set('departements', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid departement', true));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +16,7 @@ class DepartementsController extends AppController {
 		$this->set('departement', $this->Departement->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Departement->create();
 			if ($this->Departement->save($this->data)) {
@@ -28,7 +28,7 @@ class DepartementsController extends AppController {
 		}
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid departement', true));
 			$this->redirect(array('action' => 'index'));
@@ -46,7 +46,7 @@ class DepartementsController extends AppController {
 		}
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for departement', true));
 			$this->redirect(array('action'=>'index'));

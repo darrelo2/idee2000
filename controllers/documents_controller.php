@@ -3,12 +3,12 @@ class DocumentsController extends AppController {
 
 	var $name = 'Documents';
 
-	function admin_index() {
+	function index() {
 		$this->Document->recursive = 0;
 		$this->set('documents', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid document', true));
 			$this->redirect(array('action' => 'index'));
@@ -16,7 +16,7 @@ class DocumentsController extends AppController {
 		$this->set('document', $this->Document->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Document->create();
 			if ($this->Document->save($this->data)) {
@@ -31,7 +31,7 @@ class DocumentsController extends AppController {
 		$this->set(compact('employes', 'departements'));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid document', true));
 			$this->redirect(array('action' => 'index'));
@@ -52,7 +52,7 @@ class DocumentsController extends AppController {
 		$this->set(compact('employes', 'departements'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for document', true));
 			$this->redirect(array('action'=>'index'));
