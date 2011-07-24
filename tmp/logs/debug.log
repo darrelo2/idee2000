@@ -1,0 +1,2 @@
+2011-07-23 23:31:40 Debug: Notice (8): Undefined variable: javascript in [C:\wamp\www\idee2000\views\layouts\login.ctp, line 118]
+2011-07-24 01:31:11 Debug: Notice (8): Undefined property: PagesController::$Auth in [C:\wamp\www\idee2000\app_controller.php, line 48]

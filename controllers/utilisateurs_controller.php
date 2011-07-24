@@ -19,6 +19,8 @@ class UtilisateursController extends AppController {
                 $this->Session->setFlash(__('Votre compte n\'a pas été activé',true), 'default', array(), 'auth');
             }
         }
+        $this->set('title_for_layout', "Page d'authentification");
+        $this->layout = "login";
     }
 
     /*

@@ -31,11 +31,11 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth');
-	var $helpers = array ('Html','Form','Session');
+	//var $components = array('Session','Auth');
+	var $helpers = array ('Html','Form','Session','Javascript');
 	
 	function beforeFilter(){
-		$this->Auth();
+		//$this->Auth();
 		
 	}
 	/*
