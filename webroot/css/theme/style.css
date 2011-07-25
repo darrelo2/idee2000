@@ -1323,9 +1323,15 @@ p.error em {
     text-shadow: 0 1px 1px #fff;
 }
 #authMessage{
-	color:red;
+	color:#FFF;
 	font-size: 14px ;
 	font-weight:bold;
+
+}
+.requit:after{
+ content:"*";
+ font-weight:bold;
+ color:red;
 
 }
 

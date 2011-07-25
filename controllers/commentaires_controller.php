@@ -2,6 +2,7 @@
 class CommentairesController extends AppController {
 
 	var $name = 'Commentaires';
+	var $helpers = array('Javascript');
 
 	function index() {
 		$this->Commentaire->recursive = 0;
@@ -27,10 +28,8 @@ class CommentairesController extends AppController {
 			}
 		}
 		$employes = $this->Commentaire->Employe->find('list');
-		$departements = $this->Commentaire->Departement->find('list');
 		$utilisateurs = $this->Commentaire->Utilisateur->find('list');
-		$groupes = $this->Commentaire->Groupe->find('list');
-		$this->set(compact('employes', 'departements', 'utilisateurs', 'groupes'));
+		$this->set(compact('employes', 'utilisateurs'));
 	}
 
 	function edit($id = null) {
@@ -50,10 +49,8 @@ class CommentairesController extends AppController {
 			$this->data = $this->Commentaire->read(null, $id);
 		}
 		$employes = $this->Commentaire->Employe->find('list');
-		$departements = $this->Commentaire->Departement->find('list');
 		$utilisateurs = $this->Commentaire->Utilisateur->find('list');
-		$groupes = $this->Commentaire->Groupe->find('list');
-		$this->set(compact('employes', 'departements', 'utilisateurs', 'groupes'));
+		$this->set(compact('employes', 'utilisateurs'));
 	}
 
 	function delete($id = null) {

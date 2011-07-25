@@ -11,23 +11,9 @@ class Commentaire extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Departement' => array(
-			'className' => 'Departement',
-			'foreignKey' => 'departement_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Utilisateur' => array(
 			'className' => 'Utilisateur',
 			'foreignKey' => 'utilisateur_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Groupe' => array(
-			'className' => 'Groupe',
-			'foreignKey' => 'groupe_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

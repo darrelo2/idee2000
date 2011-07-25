@@ -6,19 +6,24 @@
 			<?php echo $utilisateur['Utilisateur']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pseudo'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $utilisateur['Utilisateur']['pseudo']; ?>
+			<?php echo $utilisateur['Utilisateur']['username']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Mot Passe'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Password'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $utilisateur['Utilisateur']['mot_passe']; ?>
+			<?php echo $utilisateur['Utilisateur']['password']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $utilisateur['Utilisateur']['created']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('LastvisitDate'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $utilisateur['Utilisateur']['lastvisitDate']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
@@ -36,11 +41,6 @@
 			<?php echo $this->Html->link($utilisateur['Employe']['id'], array('controller' => 'employes', 'action' => 'view', $utilisateur['Employe']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Departement'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($utilisateur['Departement']['id'], array('controller' => 'departements', 'action' => 'view', $utilisateur['Departement']['id'])); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -54,8 +54,6 @@
 		<li><?php echo $this->Html->link(__('New Groupe', true), array('controller' => 'groupes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Commentaires', true), array('controller' => 'commentaires', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Commentaire', true), array('controller' => 'commentaires', 'action' => 'add')); ?> </li>
 	</ul>
@@ -68,9 +66,7 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Contenu'); ?></th>
 		<th><?php __('Employe Id'); ?></th>
-		<th><?php __('Departement Id'); ?></th>
 		<th><?php __('Utilisateur Id'); ?></th>
-		<th><?php __('Groupe Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -85,9 +81,7 @@
 			<td><?php echo $commentaire['id'];?></td>
 			<td><?php echo $commentaire['contenu'];?></td>
 			<td><?php echo $commentaire['employe_id'];?></td>
-			<td><?php echo $commentaire['departement_id'];?></td>
 			<td><?php echo $commentaire['utilisateur_id'];?></td>
-			<td><?php echo $commentaire['groupe_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'commentaires', 'action' => 'view', $commentaire['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'commentaires', 'action' => 'edit', $commentaire['id'])); ?>

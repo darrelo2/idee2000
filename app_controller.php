@@ -31,11 +31,11 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
-	//var $components = array('Session','Auth');
+	var $components = array('Session','Auth');
 	var $helpers = array ('Html','Form','Session','Javascript');
 	
 	function beforeFilter(){
-		//$this->Auth();
+		$this->Auth();
 		
 	}
 	/*
@@ -48,12 +48,10 @@ class AppController extends Controller {
 		$this->Auth->deny('*');
 		// Adaptation des variables à notre modèle
 		$this->Auth->userModel      = 'Utilisateur';
-		$this->Auth->userScope = array('Utilisateur.actif' =>1);
-		$this->Auth->fields = array(
-	            'username' => 'pseudo',
-	            'password' => 'password'
-		);
+		//$this->Auth->userScope = array('Utilisateur.actif' =>1);
+		$this->Auth->fields = array('username' => 'username', 'password' => "password");
 		// Configuration de Auth
+		$this->Auth->autoRedirect = true;
 		$this->Auth->loginAction = array('controller' => 'utilisateurs', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'utilisateurs', 'action' => 'index');
 		$this->Auth->logoutRedirect = array('controller' => 'utilisateurs', 'action' => 'login');

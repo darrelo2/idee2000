@@ -27,8 +27,7 @@ class DocumentsController extends AppController {
 			}
 		}
 		$employes = $this->Document->Employe->find('list');
-		$departements = $this->Document->Departement->find('list');
-		$this->set(compact('employes', 'departements'));
+		$this->set(compact('employes'));
 	}
 
 	function edit($id = null) {
@@ -48,8 +47,7 @@ class DocumentsController extends AppController {
 			$this->data = $this->Document->read(null, $id);
 		}
 		$employes = $this->Document->Employe->find('list');
-		$departements = $this->Document->Departement->find('list');
-		$this->set(compact('employes', 'departements'));
+		$this->set(compact('employes'));
 	}
 
 	function delete($id = null) {

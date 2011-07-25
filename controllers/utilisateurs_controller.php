@@ -1,24 +1,37 @@
-<?php
+﻿<?php
 class UtilisateursController extends AppController {
 
 	var $name = 'Utilisateurs';
 	
 	function beforeFilter(){
+		$this->Auth->authenticate = ClassRegistry::init('Utilisateur');
 		parent::beforeFilter();
+		$this->Auth->Allow("*");
 	}
+	
+	function convertPasswords()
+	{
+		if(!empty( $this->data['Utilisateur']['passwd'] ) ){
+			$this->data['Utilisateur']['password'] = $this->Auth->password($this->data['Utilisateur']['passwd'] );
+		}
+		if(!empty( $this->data['Utilisateur']['password_confirm'] ) ){
+			$this->data['Utilisateur']['password_confirm'] = $this->Auth->password( $this->data['Utilisateur']['password_confirm'] );
+		}
+	}
+	
     /*
     * Login
     * @param    -
     * @return	-
     **/
     function login(){
-        // V�rifie que le compte est activ� (bas� sur l'userscope)
-        if($this->action == 'login' && !empty($this->data['Utilisateur']['pseudo'])){
-            $conditions = array('pseudo' => $this->data['Utilisateur']['pseudo'], 'actif <>' => 1);
+        // Vérifie que le compte est activé (basé sur l'userscope)
+        /*if($this->action == 'login' && !empty($this->data['Utilisateur']['username'])){
+            $conditions = array('username' => $this->data['Utilisateur']['username'], 'actif <>' => 1);
             if($this->Utilisateur->find('count', array('conditions' => $conditions))){
-                $this->Session->setFlash(__('Votre compte n\'a pas �t� activ�',true), 'default', array(), 'auth');
+                $this->Session->setFlash(__('Votre compte n\'a pas été activé',true), 'default', array(), 'auth');
             }
-        }
+        }*/
         $this->set('title_for_layout', "Page d'authentification");
         $this->layout = "login";
     }
@@ -51,16 +64,27 @@ class UtilisateursController extends AppController {
 		if (!empty($this->data)) {
 			$this->Utilisateur->create();
 			if ($this->Utilisateur->save($this->data)) {
-				$this->Session->setFlash(__('The utilisateur has been saved', true));
+				$this->Session->setFlash(__("L'Utilisateur a été enregistré", true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The utilisateur could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__("L'Utilisateur n'a pas été enregistré. Essayez à nouveau.", true));
 			}
 		}
-		$groupes = $this->Utilisateur->Groupe->find('list');
-		$employes = $this->Utilisateur->Employe->find('list');
-		$departements = $this->Utilisateur->Departement->find('list');
-		$this->set(compact('groupes', 'employes', 'departements'));
+		$groupes = $this->Utilisateur->Groupe->find('list',
+			array(
+				"Recursive"=>-2,
+				"fields"=>array("id","nom"),
+		
+			));
+		$employes = $this->Utilisateur->Employe->find('list',
+			array(
+				"Recursive"=>-2,
+				"fields"=>array("id","nom"),
+		
+			));
+		$this->set(compact('groupes', 'employes'));
+		$hashedPasswords = $this->Auth->hashPasswords($this->data);
+		print_r($hashedPasswords);
 	}
 
 	function edit($id = null) {
@@ -81,8 +105,7 @@ class UtilisateursController extends AppController {
 		}
 		$groupes = $this->Utilisateur->Groupe->find('list');
 		$employes = $this->Utilisateur->Employe->find('list');
-		$departements = $this->Utilisateur->Departement->find('list');
-		$this->set(compact('groupes', 'employes', 'departements'));
+		$this->set(compact('groupes', 'employes'));
 	}
 
 	function delete($id = null) {

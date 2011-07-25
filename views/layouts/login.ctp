@@ -80,6 +80,15 @@
                 </footer>
             </section>
     	</section>
+		  <div class="clear"></div>
+                    <section class="portlet grid_12 leading">
+                        <header>
+                            <h2>Portlet</h2>
+                        </header>
+                        <section class="clearfix">
+                          <?php echo $this->element('sql_dump'); ?>
+                        </section>
+                    </section>
 	</div>
     
     <!-- MAIN JAVASCRIPTS -->

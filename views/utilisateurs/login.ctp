@@ -1,4 +1,4 @@
-﻿<div class="message info">
+﻿<div class="">
     <?php echo $session->flash('auth');?>
 </div>
 
@@ -15,10 +15,9 @@ echo $form->create('Utilisateur',
 	)); 
 ?>
 	<p style="margin-bottom: 30px">
-		<?php echo $form->input('login', 
+		<?php echo $form->input('username', 
 		array(
 		'label' => 'Identifiant :',
-		'class' => 'full',
 		'required' => 'required',
 		'placeholder' => 'Identifiant',
 		)); 
@@ -28,7 +27,6 @@ echo $form->create('Utilisateur',
  	<?php echo $form->input('password', 
  	array(
  	'label' => 'Mot de passe :',
- 	'class' => 'full',
  	'required' => 'required',
  	'placeholder' => 'password',
  	)); ?>

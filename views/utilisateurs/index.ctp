@@ -3,13 +3,13 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('pseudo');?></th>
-			<th><?php echo $this->Paginator->sort('mot_passe');?></th>
+			<th><?php echo $this->Paginator->sort('username');?></th>
+			<th><?php echo $this->Paginator->sort('password');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('lastvisitDate');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th><?php echo $this->Paginator->sort('groupe_id');?></th>
 			<th><?php echo $this->Paginator->sort('employe_id');?></th>
-			<th><?php echo $this->Paginator->sort('departement_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -22,18 +22,16 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $utilisateur['Utilisateur']['id']; ?>&nbsp;</td>
-		<td><?php echo $utilisateur['Utilisateur']['pseudo']; ?>&nbsp;</td>
-		<td><?php echo $utilisateur['Utilisateur']['mot_passe']; ?>&nbsp;</td>
+		<td><?php echo $utilisateur['Utilisateur']['username']; ?>&nbsp;</td>
+		<td><?php echo $utilisateur['Utilisateur']['password']; ?>&nbsp;</td>
 		<td><?php echo $utilisateur['Utilisateur']['created']; ?>&nbsp;</td>
+		<td><?php echo $utilisateur['Utilisateur']['lastvisitDate']; ?>&nbsp;</td>
 		<td><?php echo $utilisateur['Utilisateur']['modified']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($utilisateur['Groupe']['id'], array('controller' => 'groupes', 'action' => 'view', $utilisateur['Groupe']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($utilisateur['Employe']['id'], array('controller' => 'employes', 'action' => 'view', $utilisateur['Employe']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($utilisateur['Departement']['id'], array('controller' => 'departements', 'action' => 'view', $utilisateur['Departement']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $utilisateur['Utilisateur']['id'])); ?>
@@ -65,8 +63,6 @@
 		<li><?php echo $this->Html->link(__('New Groupe', true), array('controller' => 'groupes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Commentaires', true), array('controller' => 'commentaires', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Commentaire', true), array('controller' => 'commentaires', 'action' => 'add')); ?> </li>
 	</ul>
