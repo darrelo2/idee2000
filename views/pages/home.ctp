@@ -1,97 +1,159 @@
-<h2>Sweet, "Idee2000" got Baked by CakePHP!</h2>
+﻿          <h1><?php echo $this->Html->image('themeAdmin/icons/dashboard.png', array("alt"=>""));?>Tableau de bord</h1>
+		<div class="bloc left">
+    <div class="title">
+       Départements
+    </div>
+    <div class="content dashboard">
+        <div class="center">
 
-<?php
-if (Configure::read() > 0):
-	Debugger::checkSecurityKeys();
-endif;
-?>
-<p>
-<?php
-	if (is_writable(TMP)):
-		echo '<span class="notice success">';
-			__('Your tmp directory is writable.');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			__('Your tmp directory is NOT writable.');
-		echo '</span>';
-	endif;
-?>
-</p>
-<div  style="background-color:#e32; color:#fff; padding:3px; margin: 20px 0">
-	<?php __('URL rewriting is not properly configured on your server. '); ?>
-	<ol style="padding-left:20px">
-		<li>
-			<a target="_blank" href="http://book.cakephp.org/view/917/Apache-and-mod_rewrite-and-htaccess" style="color:#fff;">
-				<?php __('Help me configure it')?>
-			</a>
-		</li>
-		<li>
-			<a target="_blank" href="http://book.cakephp.org/view/931/CakePHP-Core-Configuration-Variables" style="color:#fff;">
-				<?php __('I don\'t / can\'t use URL rewriting')?>
-			</a>
-		</li>
-	</ol>
+			<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/page.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Write an Article',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+			?>			<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/picture.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'test',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+			?>			<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/contact.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'  Manage contacts',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+			?>			<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/event.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).' Manage events',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+			?>			<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/page.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'test',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+			?>
+
+            <div class="cb"></div>
+        </div>
+    </div>
 </div>
-<p>
-<?php
-	$settings = Cache::settings();
-	if (!empty($settings)):
-		echo '<span class="notice success">';
-				printf(__('The %s is being used for caching. To change the config edit APP/config/core.php ', true), '<em>'. $settings['engine'] . 'Engine</em>');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-				__('Your cache is NOT working. Please check the settings in APP/config/core.php');
-		echo '</span>';
-	endif;
-?>
-</p>
-<p>
-<?php
-	$filePresent = null;
-	if (file_exists(CONFIGS . 'database.php')):
-		echo '<span class="notice success">';
-			__('Your database configuration file is present.');
-			$filePresent = true;
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			__('Your database configuration file is NOT present.');
-			echo '<br/>';
-			__('Rename config/database.php.default to config/database.php');
-		echo '</span>';
-	endif;
-?>
-</p>
-<?php
-if (!empty($filePresent)):
-	if (!class_exists('ConnectionManager')) {
-		require LIBS . 'model' . DS . 'connection_manager.php';
-	}
-	$db = ConnectionManager::getInstance();
- 	$connected = $db->getDataSource('default');
-?>
-<p>
-<?php
-	if ($connected->isConnected()):
-		echo '<span class="notice success">';
- 			__('Cake is able to connect to the database.');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			__('Cake is NOT able to connect to the database.');
-		echo '</span>';
-	endif;
-?>
-</p>
-<?php endif;?>
-<h3><?php __('Editing this Page') ?></h3>
-<p>
-<?php
-	printf(__('To change the content of this page, edit: %s
-		To change its layout, edit: %s
-		You can also add some CSS styles for your pages at: %s', true),
-		APP . 'views' . DS . 'pages' . DS . 'home.ctp.<br />',  APP . 'views' . DS . 'layouts' . DS . 'default.ctp.<br />', APP . 'webroot' . DS . 'css');
-?>
-</p>
+
+
+                
+
+<div class="bloc right">
+    <div class="title">
+        Today
+    </div>
+    <div class="content">
+        <div class="left">
+            <table class="noalt">
+                <thead>
+                    <tr>
+                        <th colspan="2"><em>Content</em></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h4>460</h4></td>
+                        <td>Posts</td>
+                    </tr>
+                    <tr>
+
+                        <td><h4>12</h4></td>
+                        <td>Pages</td>
+                    </tr>
+                    <tr>
+                        <td><h4>5</h4></td>
+                        <td>Categories</td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>20 000</h4></td>
+                        <td>Contacts</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+
+            <table class="noalt">
+                <thead>
+                    <tr>
+                        <th colspan="2"><em>Comments</em></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td><h4>46 000</h4></td>
+                        <td class="good">Comments</td>
+                    </tr>
+                    <tr>
+                        <td><h4>5</h4></td>
+                        <td class="neutral">Waiting for validation</td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>0</h4></td>
+                        <td class="bad">Spams</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cb"></div>
+
+    </div>
+</div>
+
+
+<div class="cb"></div>
+
+
+           
+<div class="bloc">
+    <div class="title">
+        Shortcuts
+    </div>
+    <div class="content">
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/font.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Typography',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>	
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/window.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Table',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>	
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/warning.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Notifications',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/posts.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Forms',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/chart.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Charts',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/calendar.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Calendar',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+     
+        <div class="cb"></div>
+    </div>
+</div> 

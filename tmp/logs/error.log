@@ -14,3 +14,4 @@
 2011-07-25 16:06:19 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Utilisateur.passwd' in 'where clause'</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 684]
 2011-07-25 16:06:19 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'actif' in 'where clause'</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 684]
 2011-07-25 16:07:59 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'actif' in 'where clause'</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-25 23:40:53 Warning: Warning (2): htmlentities() [<a href='http://php.net/function.htmlentities'>function.htmlentities</a>]: charset `h' not supported, assuming iso-8859-1 in [C:\cake\libs\view\helpers\html.php, line 298]

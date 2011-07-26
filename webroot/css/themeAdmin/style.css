@@ -1,6 +1,6 @@
 /*[fmt]0A90-1A0A-3*/
 @font-face{
-	font-family: HattoriHanzoLight;
+	font-family:HattoriHanzoLight;
 	src: url('fonts/hattori/hattori_hanzo-webfont.eot');
 	src: url('fonts/hattori/hattori_hanzo-webfont.eot?iefix') format('eot'), url('fonts/hattori/hattori_hanzo-webfont.woff') format('woff'), url('fonts/hattori/hattori_hanzo-webfont.ttf') format('truetype'), url('fonts/hattori/hattori_hanzo-webfont.svg#webfont2bbtnxOL') format('svg');
 	font-weight: normal;
@@ -8,8 +8,9 @@
 }
 body{
 	font-size: 12px;
-	font-family: Arial, Helvetica, Sans-serif;
+	font-family:  Arial, Helvetica, Sans-serif;
 	background: url(img/bg.png);
+
 }
 .cb, .clear{
 	clear: both;
@@ -19,6 +20,43 @@ body{
 }
 #head, #head a.button, #head .search{
 	background: url(img/spriteh.png);
+}
+/******************************************Forms******************************************************************/
+fieldset {
+	border: 1px solid #ccc;
+	margin-bottom: 1em;
+	padding: 16px 20px;
+}
+fieldset legend {
+	background:#fff;
+	color: #e32;
+	font-size: 160%;
+	font-weight: bold;
+}
+fieldset fieldset {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 16px 10px;
+}
+fieldset fieldset legend {
+	font-size: 120%;
+	font-weight: normal;
+}
+fieldset fieldset div {
+	clear: left;
+	margin: 0 20px;
+}
+select {
+	clear: both;
+	font-size: 120%;
+	vertical-align: text-bottom;
+}
+select[multiple=multiple] {
+	width: 100%;
+}
+option {
+	font-size: 120%;
+	padding: 0 3px;
 }
 /*********************************************** HEADER ***********************************************************/
 #head{
@@ -220,7 +258,7 @@ body{
 	color: #000000;
 	text-decoration: underline;
 }
-#content em, #content em a{
+/*#content em, #content em a{
 	font-style: italic;
 	color: #B2B2B2;
 	font-weight: normal;
@@ -228,9 +266,12 @@ body{
 #content strong{
 	font-weight: bold;
 	color: #1A1616;
-}
-#content pre{
-	font-style: italic;
+}*/
+
+#content pre {
+    background: none repeat scroll 0 0 #F0F0F0;
+    color: #000000;
+    font-style: normal;
 	font-size: 1.1em;
 }
 #content h1{
@@ -308,51 +349,31 @@ body{
 #content.login{
 	width: 350px;
 	margin: 90px auto 0;
+	
 }
 #content.login .notif{
 	margin: 12px 0px 16px;
 }
 #content.login div.input{
-	height: 33px;
+	height: 53px;
 	line-height: 33px;
-	margin-bottom: 13px;
-	position: relative;
-	/*+border-radius:3px;*/
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px 3px 3px 3px;
-	background-color: #1B1B1B;
-	background-color: rgba(0, 0, 0, 0.4);
-	border: 1px solid #0E0D0D;
-	border: 1px solid #303030;
-	/*+box-shadow:inset 2px 2px 5px rgba(0, 0, 0, 0.6);*/
-	-moz-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-	-webkit-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-	-o-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-	margin-top: 16px;
+	margin-bottom: 20px;
 }
 #content.login div.input input{
-	position: absolute;
-	top: 0;
-	left: 0;
+	
 	width: 329px;
 	height: 32px;
-	background: transparent;
+	background: #FFF;
 	border: none;
-	color: #6A6A6A;
+	color: #000;
 	padding: 0 10px;
 }
 #content.login div.input label{
-	position: absolute;
-	top: 0;
-	left: 10px;
-	height: 33px;
-	line-height: 33px;
-	color: #3A3636;
+	font-size:20px;
+	color: #FFF;
 }
 #content.login div.submit{
+	margin:10px;
 	float: right;
 	width: 97px;
 	text-align: right;
@@ -369,7 +390,7 @@ body{
 #content.login div.checkbox{
 	float: left;
 	width: 229px;
-	margin-top: 3px;
+	margin-top: 10px;
 }
 #content.login div.checkbox label{
 	cursor: pointer;
@@ -443,8 +464,7 @@ body{
 }
 #content .bloc .content{
 	padding: 10px;
-	background-color: #F7F7F7;
-	background-color: #F7F7F7;
+	background-color: #FFFFFF;
 }
 /**  Tabs **/
 #content .title .tabs{
@@ -750,10 +770,10 @@ body{
 	width: 98%;
 	padding: 0 1%;
 }
-#content .bloc .error, #content .bloc .error label, #content .bloc .error input, #content .error-message, #content .error textarea{
+/*#content .bloc .error, #content .bloc .error label, #content .bloc .error input, #content .error-message, #content .error textarea{
 	color: #DC3522 !important;
 	border-color: #DC3522 !important;
-}
+}*/
 #content .bloc .error input, #content .bloc .error textarea{
 	background-color: #ECE8E7 !important;
 }
@@ -1869,4 +1889,51 @@ div.uploader input{
 	height: 25px;
 	border: none;
 	cursor: default;
+}
+/** Notices and Errors **/
+div.message {
+	clear: both;
+	color: #fff;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #E32E32;
+	padding: 5px;
+}
+div.error-message {
+	clear: both;
+	color: #fff;
+	font-weight: bold;
+	background: #E32E32;
+	background: #E32;
+	height: 20px;
+	font-size: 16px;
+}
+p.error {
+	background-color: #e32;
+	color: #fff;
+	font-family: 'Courier, monospace';
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+p.error em {
+	color: #000;
+	font-weight: normal;
+	line-height: 140%;
+}
+.notice {
+	background: #ffcc00;
+	color: #000;
+	display: block;
+	font-family: Courier, monospace;
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+.success {
+	background: green;
+	color: #fff;
 }

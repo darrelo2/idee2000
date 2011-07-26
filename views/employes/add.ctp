@@ -1,41 +1,86 @@
+﻿ <h2>Ajouter un employé</h2>
+<hr/>
+ <div style="margin:20px auto; width:550px;">
 <div class="employes form">
-<?php echo $this->Form->create('Employe');?>
-	<fieldset>
-		<legend><?php __('Admin Add Employe'); ?></legend>
-	<?php
-		echo $this->Form->input('titre');
-		echo $this->Form->input('code');
-		echo $this->Form->input('nom');
-		echo $this->Form->input('prenom');
-		echo $this->Form->input('genre');
-		echo $this->Form->input('categorie');
-		echo $this->Form->input('date_embauche');
-		echo $this->Form->input('date_naissance');
-		echo $this->Form->input('lieu_naissance');
-		echo $this->Form->input('numero_assurance');
-		echo $this->Form->input('nbre_enfant');
-		echo $this->Form->input('adresse');
-		echo $this->Form->input('telephone1');
-		echo $this->Form->input('telephone2');
-		echo $this->Form->input('email');
-		echo $this->Form->input('photo');
-		echo $this->Form->input('departement_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
+<?php echo $this->Form->create('Employe',array(
+		'action' => 'add',
+	'class' => 'form has-validation'));?>
 
-		<li><?php echo $this->Html->link(__('List Employes', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Commentaires', true), array('controller' => 'commentaires', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commentaire', true), array('controller' => 'commentaires', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Documents', true), array('controller' => 'documents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Document', true), array('controller' => 'documents', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Utilisateurs', true), array('controller' => 'utilisateurs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Utilisateur', true), array('controller' => 'utilisateurs', 'action' => 'add')); ?> </li>
-	</ul>
+		<fieldset>
+		<legend>Informations personnelles</legend>
+		<?php 
+		 echo $this->Form->input('nom',
+		 array(
+		 'div'=>'input long',
+		 
+		 
+		 ));
+		
+		?>
+		<?php 
+		echo $this->Form->input('prenom',
+				 array(
+		 'div'=>'input long',
+		 
+		 
+		 ));?>
+		<?php echo $this->Form->input('genre',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('titre',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('date_naissance',
+		array(
+		'div'=>'input long',
+		'type'=>'text',
+		'class'=>'datepicker',
+		
+		));?>
+		<?php echo $this->Form->input('lieu_naissance',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('nbre_enfant',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('numero_assurance',array('div'=>'input long',));?>
+		<?php echo $this->Form->input('adresse',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('telephone1',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('telephone2',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('email',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('photo',
+		array(
+		'div'=>'input',
+		'type'=>'file',
+		
+		
+		));?>
+		</fieldset>
+		<fieldset>
+		<legend>Informations professionnelles</legend>
+		<?php echo $this->Form->input('code',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('categorie',array('div'=>'input long'));?>
+		<?php echo $this->Form->input('date_embauche',
+		array(
+		'div'=>'input long',
+		'type'=>'text',
+		'class'=>'datepicker',
+		
+		));?>
+		<?php echo $this->Form->input('departement',array('div'=>'input long'));?>
+		</fieldset>
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class="form-action clearfix">
+
+		<button data-icon-primary="ui-icon-circle-check" type="submit"
+			class="button">Enregistrer</button>
+
+		<button type="reset" class="button">Effacer</button>
+
+	</div>		
+
+<?php echo $this->Form->end();?>
+</div>
 </div>

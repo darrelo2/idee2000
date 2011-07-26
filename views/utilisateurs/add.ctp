@@ -1,7 +1,10 @@
- <header class="container_12 clearfix">
  <h2>Ajouter un utilisateur</h2>
- </header>
-<section>
+<hr/>
+
+ <div style="margin:20px auto; width:250px;">
+ 
+
+
 
 <?php
 echo $form->create('Utilisateur',
@@ -24,7 +27,7 @@ array(
 		'class' => 'full',
 		//'required' => 'required',
 		'placeholder' => 'Identifiant',
-		'div'=>'form-input',
+		'div'=>'input',
 	));
 	?>
 	</div>
@@ -39,7 +42,7 @@ array(
 		'type' => 'password',
 		'required' => 'required',
 		'value' => 'password',
-		'div'=>'form-input requiered',
+		'div'=>'input requiered',
 	));
 	?>
 	</div>
@@ -56,7 +59,7 @@ array(
 		'type' => 'password',
 		'required' => 'required',
 		'value' => 'password',
-		'div'=>'form-input requiered',
+		'div'=>'input requiered',
 	));
 	?>
 	</div>
@@ -71,7 +74,7 @@ array(
 	array(
 		'label'  => false,
 		//'required' => 'required',
-		'div'=>'form-input requiered',
+		'div'=>'input requiered',
 	));
 	?>
 	</div>
@@ -85,7 +88,7 @@ array(
 	<?php echo $form->input('Utilisateur.employe_id',
 	array(
 		'label'  => false,
-		'div'=>'form-input requiered',
+		'div'=>'input requiered',
 	));
 	?>
 	</div>
@@ -98,7 +101,8 @@ array(
 
 	</div>
 	<?php echo $form->end();?>
-</section>
+</div>
+
 
 
 
