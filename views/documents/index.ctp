@@ -7,7 +7,6 @@
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('nom_fichier');?></th>
 			<th><?php echo $this->Paginator->sort('employe_id');?></th>
-			<th><?php echo $this->Paginator->sort('departement_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -25,9 +24,6 @@
 		<td><?php echo $document['Document']['nom_fichier']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($document['Employe']['id'], array('controller' => 'employes', 'action' => 'view', $document['Employe']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($document['Departement']['id'], array('controller' => 'departements', 'action' => 'view', $document['Departement']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $document['Document']['id'])); ?>
@@ -57,7 +53,5 @@
 		<li><?php echo $this->Html->link(__('New Document', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

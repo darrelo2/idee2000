@@ -26,11 +26,6 @@
 			<?php echo $this->Html->link($document['Employe']['id'], array('controller' => 'employes', 'action' => 'view', $document['Employe']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Departement'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($document['Departement']['id'], array('controller' => 'departements', 'action' => 'view', $document['Departement']['id'])); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -42,7 +37,5 @@
 		<li><?php echo $this->Html->link(__('New Document', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -39,7 +39,14 @@ echo $form->create('Utilisateur',
           'label' => 'Se souvenir de moi',
           'id' => 'remember',
           'div' => 'checkbox',
-          )); ?>
+          ));
+	  echo $this->Form->input('lastvisitDate',
+		array(
+				'type'=>'hidden'
+				
+		     ));
+	  
+	  ?>
    
  	  <div class="submit">
                     <input type="submit" value="Connexion"/>

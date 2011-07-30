@@ -31,11 +31,12 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
-	var $components = array('Session','Auth');
-	var $helpers = array ('Html','Form','Session','Javascript');
+	var $components = array('Cookie','Session','Auth');
+	var $helpers = array ('Html','Form','Session','Javascript','Time');
 	
 	function beforeFilter(){
 		$this->Auth();
+		
 		
 	}
 	/*
@@ -51,12 +52,19 @@ class AppController extends Controller {
 		//$this->Auth->userScope = array('Utilisateur.actif' =>1);
 		$this->Auth->fields = array('username' => 'username', 'password' => "password");
 		// Configuration de Auth
-		$this->Auth->autoRedirect = true;
+		$this->Auth->autoRedirect = false;
 		$this->Auth->loginAction = array('controller' => 'utilisateurs', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'utilisateurs', 'action' => 'index');
 		$this->Auth->logoutRedirect = array('controller' => 'utilisateurs', 'action' => 'login');
 		$this->Auth->loginError = __('Identifiant ou mot de passe incorrects.',true);
 		$this->Auth->authError = __('Désolé, vous n\'avez pas les droits suffisants.',true);
 	}
+
+	function _autoLogin($user) {
+	
+	 } 
+ 
+	function _autoLoginError($cookie) { 
+	} 
 	
 }

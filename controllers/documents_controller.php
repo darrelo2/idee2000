@@ -62,4 +62,17 @@ class DocumentsController extends AppController {
 		$this->Session->setFlash(__('Document was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	function telecharger($filename=null) {
+		$ext = substr(strtolower(strrchr(basename($filename),".")),1);
+		$nom = substr($filename,0,strpos($filename,"."));
+	    $this->view = 'Media';	 
+	    $params = array(	 
+		'id' => $filename,	 
+		'name' => $nom,	 
+		'extension' => $ext,	 	 
+		'path' => APP.'webroot'.DS.'img'.DS.'documents',
+		'download'  => true
+	    );	 
+	    $this->set($params);	 
+	}
 }

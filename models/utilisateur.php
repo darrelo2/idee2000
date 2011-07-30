@@ -2,6 +2,7 @@
 class Utilisateur extends AppModel {
 	var $name = 'Utilisateur';
 	
+	
 	 function checkPasswords($data) {
         if ($this->data[$this->name]['password'] == $this->data[$this->name]['password_confirm']) {
             return true;
@@ -13,6 +14,9 @@ class Utilisateur extends AppModel {
             return false;
         }
     }
+    /*
+     * Compares deux champs
+    */
 	  function identicalFieldValues( $field=array(), $compare_field=null )  
     { 
         foreach( $field as $key => $value ){ 
@@ -25,11 +29,34 @@ class Utilisateur extends AppModel {
             } 
         } 
         return TRUE; 
-    } 
+    }
+    /*
+     * Verifie que le pseudo choisit n'est pas
+     * déjà utilisé.
+     */
+    
 	function checkUsername($data){
 	 //$tab = $this->Utilisateur->find('list',array('fields'=>array('username')));
 	 $fieldName = $this->data[$this->name]['username'];
 	 $tab = $this->findAllByUsername($fieldName);
+	  if(!empty($tab)){
+		return false;
+	  
+	  }
+	  else{
+	  return true;
+	  }
+	 
+	
+	}  /*
+     * Verifie que l'employé choisit n'a pas
+     * déjà de compte.
+     */
+    
+	function checkEmploye($data){
+	 //$tab = $this->Utilisateur->find('list',array('fields'=>array('username')));
+	 $fieldName = $this->data[$this->name]['employe_id'];
+	 $tab = $this->findAllByEmployeId($fieldName);
 	  if(!empty($tab)){
 		return false;
 	  
@@ -115,6 +142,10 @@ class Utilisateur extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'check' => array(
+			'rule' => 'checkEmploye',
+			'message' => 'Cet employé a déjà un compte.'
+			),	
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

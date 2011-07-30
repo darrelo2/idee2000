@@ -1,6 +1,7 @@
 <div class="utilisateurs index">
 	<h2><?php __('Utilisateurs');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table id="tableau">
+	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
@@ -12,6 +13,8 @@
 			<th><?php echo $this->Paginator->sort('employe_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
+	<thead>
+	<tbody>
 	<?php
 	$i = 0;
 	foreach ($utilisateurs as $utilisateur):
@@ -40,6 +43,7 @@
 		</td>
 	</tr>
 <?php endforeach; ?>
+	</tbody>
 	</table>
 	<p>
 	<?php

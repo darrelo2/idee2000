@@ -33,3 +33,11 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	/*Router::connect('/documents/:nom/:filname.:ext', array('controller' => 'documents', 'action' => 'telecharger'),
+                        array(
+        'pass' => array('nom', 'filename','ext'),
+    )
+                        );*/
+
+
+

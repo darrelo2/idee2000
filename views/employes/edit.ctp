@@ -1,15 +1,15 @@
 <div class="employes form">
 <?php echo $this->Form->create('Employe');?>
 	<fieldset>
-		<legend><?php __('Admin Edit Employe'); ?></legend>
+		<legend><?php __('Edit Employe'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('titre');
-		echo $this->Form->input('code');
+		echo $this->Form->input('matricule');
 		echo $this->Form->input('nom');
 		echo $this->Form->input('prenom');
 		echo $this->Form->input('genre');
 		echo $this->Form->input('categorie');
+		echo $this->Form->input('grade');
 		echo $this->Form->input('date_embauche');
 		echo $this->Form->input('date_naissance');
 		echo $this->Form->input('lieu_naissance');
@@ -21,6 +21,9 @@
 		echo $this->Form->input('email');
 		echo $this->Form->input('photo');
 		echo $this->Form->input('departement_id');
+		echo $this->Form->input('filesize');
+		echo $this->Form->input('mimetype');
+		echo $this->Form->input('dir');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

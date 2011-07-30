@@ -23,7 +23,9 @@
 		echo $scripts_for_layout;
 		 echo $javascript->link("jquery/jquery.min.js", true);
 		 echo $javascript->link("jquery/jquery-ui.min.js", true);
+		 echo $javascript->link("jquery/jquery.dataTables.min.js", true);
 		 echo $javascript->link("jquery/interface.js", true);
+		 echo $javascript->link("jquery/jquery.jqprint.0.3.js", true);
 		 echo $this->Html->css('themeAdmin/jqueryui/jqueryui.css'); 
 		?>
 	<title><?php echo $title_for_layout; ?></title>
@@ -51,12 +53,21 @@
          <?php echo $javascript->link("themeAdmin/visualize.jQuery.js", true); ?>
         <!-- Uniform - http://uniformjs.com/ -->
          <?php echo $javascript->link("themeAdmin/jquery.uniform.min.js", true); ?>
+		  
        
 
     </head>
 
-    <body class="white whitealt">
-        
+    <body class="white whitealt" style="overflow: hidden";>
+         <div id="loading"> 
+
+        <script type = "text/javascript"> 
+            document.write("<div id='loading-container'><p id='loading-content'>" +
+                           "<img id='loading-graphic' width='16' height='16' src='img/ajax-loader-eeeeee.gif' /> " +
+                           "Loading...</p></div>");
+        </script> 
+
+    </div>    
         
         <!-- HEAD--> 
       <?php echo $this->element('sidebar'); ?>
@@ -91,7 +102,14 @@
 		</div>
 	</div>
 </div>
-        
+            	   <script>
+    $(window).load(function(){
+        $("#loading").fadeOut(function(){
+            $(this).remove();
+            $('body').removeAttr('style');
+        });
+    });
+    </script>    
         
     </body>
 </html>

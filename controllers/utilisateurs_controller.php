@@ -5,6 +5,7 @@ class UtilisateursController extends AppController {
 	
 	function beforeFilter(){
 		$this->Auth->authenticate = ClassRegistry::init('Utilisateur');
+		//$this->Auth->autoRedirect = false;
 		parent::beforeFilter();
 		$this->Auth->Allow("*");
 	}
@@ -19,19 +20,38 @@ class UtilisateursController extends AppController {
 		}
 	}
 	
-    /*
-    * Login
-    * @param    -
-    * @return	-
-    **/
+/* Vérifie si la connexion à reussit
+* Mets à jour l'heure et la date de la dernière connexion
+* Si l'utilisateur à cliqué sur le champ "se souvenir de moi"
+* On enregistre le nom et le mot de passe dans un Cookie
+**/
     function login(){
-        // Vérifie que le compte est activé (basé sur l'userscope)
-        /*if($this->action == 'login' && !empty($this->data['Utilisateur']['username'])){
-            $conditions = array('username' => $this->data['Utilisateur']['username'], 'actif <>' => 1);
-            if($this->Utilisateur->find('count', array('conditions' => $conditions))){
-                $this->Session->setFlash(__('Votre compte n\'a pas été activé',true), 'default', array(), 'auth');
-            }
-        }*/
+        
+	if ($this->Auth->user()) {
+		if (!empty($this->data['Utilisateur']['remember'])) {
+			$cookie = array();
+			$cookie['username'] = $this->data['Utilisateur']['username'];
+			$cookie['password'] = $this->data['Utilisateur']['password'];
+			$this->Cookie->write('Auth.Utilisateur', $cookie, true, '+2 weeks');
+			unset($this->data['Utilisateur']['remember']);
+		}
+			$this->Utilisateur->create();
+			if( !(empty($this->data)) ){
+			$this->Utilisateur->id = $this->Auth->user('id');
+			$this->Utilisateur->saveField('lastvisitDate', date('Y-m-d H:i:s') );
+				}
+			$this->redirect($this->Auth->redirect());
+		}
+		if (empty($this->data)) {
+			$cookie = $this->Cookie->read('Auth.Utilisateur');
+			if (!is_null($cookie)) {
+				if ($this->Auth->login($cookie)) {
+					//  Efface le message auth, seulement si nous l'utilisons
+					$this->Session->delete('Message.auth');
+					$this->redirect($this->Auth->redirect());
+				}
+			}
+		}
         $this->set('title_for_layout', "Page d'authentification");
         $this->layout = "login";
     }

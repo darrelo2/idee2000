@@ -2,10 +2,10 @@
 class Employe extends AppModel {
 	var $name = 'Employe';
 	var $validate = array(
-		'code' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
+		'matricule' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Champ obligatoire',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -15,7 +15,7 @@ class Employe extends AppModel {
 		'nom' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Champ obligatoire',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -25,7 +25,7 @@ class Employe extends AppModel {
 		'prenom' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'champ obligation',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -35,7 +35,7 @@ class Employe extends AppModel {
 		'genre' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Champ obligatoire',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -44,8 +44,8 @@ class Employe extends AppModel {
 		),
 		'date_embauche' => array(
 			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
+				'rule' => array('date','dmy'),
+				'message' => 'Entrez une date valide au format J-M-A',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -54,8 +54,8 @@ class Employe extends AppModel {
 		),
 		'date_naissance' => array(
 			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
+				'rule' => array('date','dmy'),
+				'message' => 'Entrez une date valide au format J-M-A',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -75,7 +75,7 @@ class Employe extends AppModel {
 		'nbre_enfant' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Un nombre est attendu',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -85,17 +85,7 @@ class Employe extends AppModel {
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'photo' => array(
-			'extension' => array(
-				'rule' => array('extension'),
-				//'message' => 'Your custom message here',
+				'message' => "Votre email n'est pas au bon format",
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -105,13 +95,27 @@ class Employe extends AppModel {
 		'departement_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Veillez indiquer le departement',
 				//'allowEmpty' => false,
-				//'required' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+	);
+	var $actsAs = array(
+	  'MeioUpload' => array(
+	    'photo' => array(
+	      'dir' => 'img/employes/photo',
+	      'create_directory' => true,
+	      'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
+	      'allowed_ext' => array('.jpg', '.jpeg', '.png'),
+	      'thumbsizes' => array(
+	        'normal' => array('width'=>300, 'height'=>300),
+	),
+	      'default' => 'default.jpg',
+	)
+	)
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

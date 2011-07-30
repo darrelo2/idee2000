@@ -544,11 +544,154 @@ option {
 	margin: 0 auto 10px;
 	max-width: 48px;
 	max-height: 48px;
+	
 }
-/** Table **/
+
+	#content table{
+	width: 100%;
+	 border: 0;
+	 margin-bottom: 2em;
+	 border-collapse: collapse; 
+	
+	}
+
+	 #content table thead th
+	 {
+	 	font-size: 13px;
+		font-weight: bold;
+		text-align: left;
+		padding: 10px;
+		
+		background-color: #333;
+		
+		color: #FFF;
+		
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+	#content table thead th a
+	 {
+	 	font-size: 13px;
+		font-weight: bold;
+		color: #FFF;
+		text-decoration:none;
+
+	}
+	#content table thead th a:hover
+	 {
+	 	font-size: 13px;
+		font-weight: bold;
+		color: #FFF;
+		text-decoration:none;
+
+	}	
+	
+	#content table thead th {
+		background-color: #333 !important;
+		text-align:left;
+		}	
+	
+	#content table td {
+		vertical-align: top;
+		}
+	
+	#content table tbody tr td {
+		background: #FFF;
+		border: 1px dotted #DDD;
+		}
+
+	#content table th {
+		padding: 10px 0;
+		}
+	#content table tbody td {
+		padding: 10px;
+		}
+	
+	#content table tr.even td {
+		background: #FFF;
+		}
+	
+	#content table tr:nth-child(odd) td {
+		background-color:#F6F6F6;
+		}
+	#content table tr:nth-child(even) td {
+		background-color:#FFF;
+		}
+hr { border: none; border-bottom: 1px dotted #CCC; margin-bottom: 2em; margin-top: 1em; }		
+/** Scaffold View **/
+#content dl {
+	line-height: 2em;
+	margin: 0em 0em;
+	width:100%;
+}
+#content dl .altrow {
+	background: #f4f4f4;
+}
+#content dt {
+	font-weight: bold;
+	padding: 4px;
+	vertical-align: top;
+	color:#000;
+}
+#content dd {
+	margin-left: 200px;
+	margin-top: -2em;
+	vertical-align: top;
+	color:#4f4c4c;
+}
+#content .centre{
+	margin:0px auto;
+	background:#fff;
+	border:1px dotted #000;
+	width:700px;
+	
+}
+#content .photo{
+	float:right;
+	margin:10px;
+	border:5px solid #FFF;
+}
+#content li{
+	list-style-type:none;
+}
+/*********************************/
+/* Menu horizontal (items flottants) */
+/*********************************/
+			#nav {
+				list-style: none ;
+				margin: 0 ;
+				padding: 0 ;
+				overflow: hidden ;	/* Création du contexte de formatage */
+				font-weight:bold;
+				}
+			#nav li {
+				float: left ;
+				width: 150px ;
+				border: 1px solid  #303030;
+				margin-right: 1px ;
+				color: #fff ;
+				background: #0D0D0D ;
+				}
+			#nav li a {
+				display: block ;
+				background: #494949 ;
+				color: #CFCFCF ;
+				font: 14px Arial,time,sans-serif ;
+				line-height: 16px ;
+				padding: 4px 0 ;
+				text-align: center ;
+				text-decoration: none ;
+				}
+			#nav li a:hover, #nav li a:focus, #nav li a:active {
+				background: #303030 ;
+				text-decoration: none ;
+				color:#fff;
+				}
+
+/** Table
 #content table{
 	width: 100%;
-	text-align: left;
+	text-align: justify;
 }
 #content table .picture img{
 	border: 4px solid #DFDFDF;
@@ -601,7 +744,7 @@ option {
 }
 #content table tbody tr td img{
 	padding-right: 5px;
-}
+} **/
 /** Pagination**/
 #content .pagination{
 	text-align: right;
@@ -708,11 +851,17 @@ option {
 	background-image: url(img/warning.png);
 }
 /**  Forms **/
+.requit:after{
+ content:"*";
+ font-weight:bold;
+ color:red;
+
+}
+
 #content .bloc .input{
 	padding: 5px 0 10px;
 }
 #content .bloc label{
-	display: block;
 	color: #2C2C2C;
 	font-weight: bold;
 	padding-bottom: 10px;
@@ -1500,7 +1649,7 @@ plugin styles*/
 	border: 1px solid #C4C7CA;
 }
 .white #content .bloc .title{
-	background: url(img/white-bloctitle.png);
+	background: #FFF;
 	color: #2C2C2C;
 	/*+text-shadow:0px 1px #FFFFFF;*/
 	-moz-text-shadow: 0px 1px #FFFFFF;

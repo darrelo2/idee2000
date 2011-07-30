@@ -58,6 +58,13 @@
                 
             </div>
         
-        
+        	   <script>
+    $(window).load(function(){
+        $("#loading").fadeOut(function(){
+            $(this).remove();
+            $('body').removeAttr('style');
+        });
+    });
+    </script>
     </body>
 </html>

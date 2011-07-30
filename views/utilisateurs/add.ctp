@@ -1,7 +1,7 @@
  <h2>Ajouter un utilisateur</h2>
 <hr/>
 
- <div style="margin:20px auto; width:250px;">
+ <div style="margin:20px auto; width:550px;">
  
 
 
@@ -27,7 +27,7 @@ array(
 		'class' => 'full',
 		//'required' => 'required',
 		'placeholder' => 'Identifiant',
-		'div'=>'input',
+		'div'=>'input long',
 	));
 	?>
 	</div>
@@ -42,7 +42,7 @@ array(
 		'type' => 'password',
 		'required' => 'required',
 		'value' => 'password',
-		'div'=>'input requiered',
+		'div'=>'input long',
 	));
 	?>
 	</div>
@@ -59,7 +59,7 @@ array(
 		'type' => 'password',
 		'required' => 'required',
 		'value' => 'password',
-		'div'=>'input requiered',
+		'div'=>'input long',
 	));
 	?>
 	</div>
@@ -74,7 +74,7 @@ array(
 	array(
 		'label'  => false,
 		//'required' => 'required',
-		'div'=>'input requiered',
+		'div'=>'input long',
 	));
 	?>
 	</div>
@@ -88,8 +88,13 @@ array(
 	<?php echo $form->input('Utilisateur.employe_id',
 	array(
 		'label'  => false,
-		'div'=>'input requiered',
+		'div'=>'input long',
 	));
+	echo $this->Form->input('lastvisitDate',
+		array(
+				'type'=>'hidden'
+				
+		     ));
 	?>
 	</div>
 	<div class="form-action clearfix">
