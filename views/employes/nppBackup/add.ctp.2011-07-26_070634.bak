@@ -1,0 +1,52 @@
+﻿ <h2>Ajouter un employé</h2>
+<hr/>
+ <div style="margin:20px auto; width:550px;">
+<div class="employes form">
+<?php echo $this->Form->create('Employe');?>
+	<fieldset>
+		<legend><?php __('Admin Add Employe'); ?></legend>
+	
+	
+		<fieldset>
+		<legend>Informations personnelles</legend>
+		<?php echo $this->Form->input('nom');?>
+		<?php echo $this->Form->input('prenom');?>
+		<?php echo $this->Form->input('genre');?>
+		<?php echo $this->Form->input('titre');?>
+		<?php echo $this->Form->input('date_naissance');?>
+		<?php echo $this->Form->input('lieu_naissance');?>
+		<?php echo $this->Form->input('nbre_enfant');?>
+		<?php echo $this->Form->input('numero_assurance');?>
+		<?php echo $this->Form->input('adresse');?>
+		<?php echo $this->Form->input('telephone1');?>
+		<?php echo $this->Form->input('telephone2');?>
+		<?php echo $this->Form->input('email');?>
+		<?php echo $this->Form->input('photo');?>
+		</fieldset>
+		<fieldset>
+		<legend>Informations professionnelles</legend>
+		<?php echo $this->Form->input('code');?>
+		<?php echo $this->Form->input('categorie');?>
+		<?php echo $this->Form->input('date_embauche');?>
+		<?php echo $this->Form->input('departement_id');?>
+		</fieldset>
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+<?php echo $this->Form->end(__('Submit', true));?>
+</div>
+</div>

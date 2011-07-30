@@ -1,0 +1,5 @@
+﻿$(function() {
+		$( ".datepicker" ).datepicker({changeMonth: true,changeYear: true,dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],dateFormat: 'dd-mm-yy',firstDay: 1 });
+	});
+	
+	

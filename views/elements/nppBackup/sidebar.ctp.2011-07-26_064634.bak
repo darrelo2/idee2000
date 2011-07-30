@@ -1,0 +1,157 @@
+﻿   <div id="sidebar">
+            <ul>
+                <li class="nosubmenu">
+					
+					<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/black-dashboard.png').'Tableau de bord',
+					array('controller' => 'pages', 'action' => 'display', 'home'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                </li>
+
+                <li>
+									<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/agents.png').'Employés','#',
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                    <ul>
+                                                <li>
+																	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des employés',
+					array('controller' => 'employes', 'action' => 'index'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+												
+												</li>
+                                                <li>
+												<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter employé',
+					array('controller' => 'employes', 'action' => 'add'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>										
+												</li>
+                                            
+                    </ul>
+                </li>
+				             <li>
+									<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/inbox2.png').'Départements','#',
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                    <ul>
+                                                <li>
+																	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des départements',
+					array('controller' => 'departements', 'action' => 'index'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+												
+												</li>
+                                                <li>
+												<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter Département',
+					array('controller' => 'departements', 'action' => 'add'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>										
+												</li>
+                                            
+                    </ul>
+                </li>
+				    <li>
+									<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/admin.png').'Administrateurs','#',
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                    <ul>
+                                                <li>
+																	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des administrateurs',
+					array('controller' => 'utilisateurs', 'action' => 'index'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+												
+												</li>
+                                                <li>
+												<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter administrateur',
+					array('controller' => 'utilisateurs', 'action' => 'add'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>										
+												</li>
+                                            
+                    </ul>
+                </li>
+				
+				<!--En production les rôles ne seront pas visibles par les utilisateurs de l'application
+					Les rôle permettent de definir les niveaux d'accès à l'application
+				
+				-->
+				    <li>
+									<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/settings.png').'Roles','#',
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                    <ul>
+                                                <li>
+																	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des roles',
+					array('controller' => 'groupes', 'action' => 'index'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+												
+												</li>
+                                                <li>
+												<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter rôle',
+					array('controller' => 'groupes', 'action' => 'add'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>										
+												</li>
+                                            
+                    </ul>
+                </li>
+					    <li>
+									<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/documents.png').'Gestion des documents','#',
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                    <ul>
+                                                <li>
+																	<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des documents',
+					array('controller' => 'documents', 'action' => 'index'),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+												
+												</li>
+                                                <li>
+												<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter documents',
+					array('controller' => 'documents', 'action' => 'add'),
+					array('class'=>'shortcut','escape' => false,'title'=>"Ajouter les documents d'un employé")
+				);
+	?>										
+												</li>
+                                            
+                    </ul>
+                </li>
+
+            </ul>
+
+
+        </div>

@@ -1,0 +1,45 @@
+   <div id="sidebar">
+            <ul>
+                <li class="nosubmenu">
+                    <a href="/idee2000/">
+                        <img src="img/icons/menu/black-dashboard.png" alt="" />
+                        
+                    </a>
+					<?php echo $this->Html->link(__("Tableau de bord", true), array('controller' => 'pages', 'action' => 'display', 'home')); ?>
+					
+					<?php echo $this->Html->link(
+					$this->Html->image('themeAdmin/icons/font.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Tableau de bord',
+					array('controller'=>'recettes', 'action'=>'supprimer', 6),
+					array('class'=>'shortcut','escape' => false)
+				);
+	?>
+                </li>
+
+                <li><a href="#"><img src="img/icons/menu/black-layout.png" alt="" /> Elements</a>
+                    <ul>
+                                                <li><a href="index.html">Dashboard</a></li>
+                                                <li><a href="forms.html">Forms</a></li>
+                                                <li><a href="table.html">Table</a></li>
+                                                <li><a href="notif.html">Notifications</a></li>
+
+                                                <li><a href="charts.html">Charts</a></li>
+                                                <li><a href="typo.html">Typography</a></li>
+                                                <li><a href="calendar.html">Calendar</a></li>
+                                                <li><a href="index.html">Everything on the same page !</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="img/icons/menu/black-color.png" alt="" /> Alternate colors</a>
+
+                    <ul>
+                        <li><a href="index.html"><span>White</span></a></li>
+                        <li><a href="whitealt.html"><span>White with dark sidebar</span></a></li>
+                        <li><a href="black.html"><span>Black</span></a></li>
+                        <li><a href="wood.html"><span>Wood</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="nosubmenu"><a href="#"><img src="img/icons/menu/black-pacman.png" alt="" /> This button is useless</a></li>
+            </ul>
+
+
+        </div>
