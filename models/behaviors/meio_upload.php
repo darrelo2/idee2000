@@ -7,13 +7,6 @@
  * Which is in turn based upon Tane Piper's improved upload behavior
  *  (http://digitalspaghetti.tooum.net/switchboard/blog/2497:Upload_Behavior_for_CakePHP_12)
  *
- * @author Jose Diaz-Gonzalez (support@savant.be)
- * @author Juan Basso (jrbasso@gmail.com)
- * @author Vinicius Mendes (vbmendes@gmail.com)
- * @package meio_upload
- * @subpackage meio_upload.models.behaviors
- * @filesource http://github.com/jrbasso/MeioUpload
- * @version 2.2
  */
 App::import('Core', array('File', 'Folder'));
 
