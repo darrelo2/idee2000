@@ -1,0 +1,65 @@
+﻿body { /* Modifications : la couleur de fond de page - la police - l'unité utilisée pour la taille de la police  */ 
+    background-color :#fff; 
+    font-family :Serif; 
+    font-size :15pt; 
+	color:#000;
+} 
+ .actions,.related,.requet,#sidebar,#head{
+  display:none;
+ 
+ }
+ dl {
+	line-height: 24pt;
+	margin: 0pt 0pt;
+	width:100%;
+	color:#000;
+}
+ dl .altrow {
+	background: #f4f4f4;
+}
+dt {
+	font-weight: bold;
+	padding: 2pt;
+	vertical-align: top;
+	color:#000;
+	border-bottom: 0.5pt solid #000;
+	border-top: 0.5pt solid #000;
+}
+ dd {
+	margin-left: 200pt;
+	margin-top: -26pt;
+	vertical-align: top;
+	color:#4f4c4c;
+	
+}
+.centre{
+	margin:0px auto;
+	background:#fff;
+	width:100%;
+	color:#000;
+}
+@page { margin: 10% }
+#content .photo{
+	float:right;
+	margin:8pt;
+	border:3pt solid #FFF;
+}
+#content li{
+	list-style-type:none;
+}
+h2 { /* Modifications : marges - police - couleur du soulignÃ© */
+	padding-bottom:2pt;
+	padding-left:0;
+	font:bold 20pt Serif;
+	border-bottom:1pt solid #000;
+	color:#000;
+}
+hr,h1,h3{
+	display:none;
+}
+    text-decoration:none;
+}
+
+a:hover { /* Suppression du souligné */
+    text-decoration:none;
+}
