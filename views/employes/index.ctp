@@ -1,6 +1,6 @@
 ﻿<div class="employes index">
 	<h2><?php __('Tous les Employés');?></h2>
-	<hr/>
+	
 	<table  id="tableau">
 	<thead>	
 	<tr> 
@@ -40,11 +40,8 @@
 		<td><?php echo $employe['Employe']['prenom']; ?>&nbsp;</td>		
 		<td>
 		<?php
-			$genre= $employe['Employe']['genre'];
-			if($genre == "M")
-			{
-				echo "Homme";
-			}else{ echo "Femme";}
+			echo $employe['Employe']['genre'];
+		
 			?>
 			&nbsp;		
 		</td>
@@ -90,19 +87,19 @@
 		echo $this->Html->link(
 		$this->Html->image('themeAdmin/icons/affiche.png', array('width'=>'20','height'=>'20','alt'=>'photo', 'border' => '0')),
 		array('action' => 'view', $employe['Employe']['id']),
-		array('escape' => false,"title"=>sprintf("Afficher toutes les informations ",true))
+		array('escape' => false,"title"=>sprintf("Afficher toutes les informations ",true),"style"=>"text-decoration:none; text-align:rigth;margin-left:10px;")
 				);
 		?>&nbsp;<?php
 		echo $this->Html->link(
 		$this->Html->image('themeAdmin/icons/modif.png', array('width'=>'20','height'=>'20','alt'=>'photo', 'border' => '0')),
 		array('action' => 'edit', $employe['Employe']['id']),
-		array('escape' => false,"title"=>sprintf("Modifier les informations",true))
+		array('escape' => false,"title"=>sprintf("Modifier les informations",true),"style"=>"text-decoration:none; text-align:rigth;margin-left:10px;")
 				);
 		?>&nbsp;<?php
 		echo $this->Html->link(
 		$this->Html->image('themeAdmin/icons/sup.png', array('width'=>'20','height'=>'20','alt'=>'photo', 'border' => '0')),
 		array('action' => 'delete', $employe['Employe']['id']),
-		array('escape' => false,"title"=>sprintf("Supprimer cet employé",true)),
+		array('escape' => false,"title"=>sprintf("Supprimer cet employé",true),"style"=>"text-decoration:none; text-align:rigth;margin-left:10px;"),
 		sprintf(__('Voulez vous vraiment supprimer :  %s?', true), $employe['Employe']['nom']." ".$employe['Employe']['prenom'])
 		
 				);
@@ -113,7 +110,6 @@
 <?php endforeach; ?>
 	</tbody>
 	</table>
-	<p>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(

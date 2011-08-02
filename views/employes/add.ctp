@@ -1,9 +1,8 @@
 ﻿ <h2>Ajouter un employé</h2>
-<hr/>
+
  <div style="margin:20px auto; width:550px;">
 <div class="employes form">
 <?php echo $this->Form->create('Employe',array(
-		'action' => 'add',
 	'class' => 'form has-validation',
 	"type" => "file"
 	));?>
@@ -11,12 +10,12 @@
 		<fieldset>
 		<legend>Informations personnelles</legend>
 
-		<?php echo $this->Form->radio('genre',
+		<?php echo $this->Form->input('genre',
 		array(
-		'Homme'=>'Homme',
-		'Femme'=>'Femme')
-		
-		);?>		
+		      "options"=>array(
+				"Homme"=>"Homme",
+				"Femme"=>"Femme"
+		)));?>		
 
  
  	<?php 
