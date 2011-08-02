@@ -4,19 +4,19 @@
 					
 					<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/black-dashboard.png').'Tableau de bord',
-					array('controller' => 'pages', 'action' => 'display', 'home'),
+					array('controller' => 'pages', 'action' => 'display', 'accueil'),
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>
                 </li>
 
-                <li>
+                <li <?php if($this->params['controller']=="employes") echo 'class="current"';?> >
 									<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/agents.png').'Employés','#',
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>
-                    <ul>
+                    <ul class="submenu">
                                                 <li>
 																	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des employés',
@@ -37,13 +37,13 @@
                                             
                     </ul>
                 </li>
-				             <li>
+				             <li <?php if($this->params['controller']=="departements") echo 'class="current"';?> >
 									<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/inbox2.png').'Départements','#',
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>
-                    <ul>
+                    <ul class="submenu">
                                                 <li>
 																	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des départements',
@@ -64,13 +64,13 @@
                                             
                     </ul>
                 </li>
-				    <li>
+				    <li <?php if($this->params['controller']=="utilisateurs") echo 'class="current"';?>>
 									<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/admin.png').'Administrateurs','#',
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>
-                    <ul>
+                    <ul class="submenu">
                                                 <li>
 																	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des administrateurs',
@@ -96,13 +96,13 @@
 					Les rôle permettent de definir les niveaux d'accès à l'application
 				
 				-->
-				    <li>
+				    <li <?php if($this->params['controller']=="groupes") echo 'class="current"';?>>
 									<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/settings.png').'Roles','#',
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>
-                    <ul>
+                    <ul class="submenu">
                                                 <li>
 																	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des roles',
@@ -123,13 +123,13 @@
                                             
                     </ul>
                 </li>
-					    <li>
+					    <li <?php if($this->params['controller']=="documents") echo 'class="current"';?>>
 									<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/documents.png').'Gestion des documents','#',
 					array('class'=>'shortcut','escape' => false,'title'=>"Gestion des documents des employés")
 				);
 	?>
-                    <ul>
+                    <ul class="submenu">
                                                 <li>
 																	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/list.png').'Liste des documents',

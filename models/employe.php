@@ -44,7 +44,7 @@ class Employe extends AppModel {
 		),
 		'date_embauche' => array(
 			'date' => array(
-				'rule' => array('date','dmy'),
+				'rule' => array('date','ymd'),
 				'message' => 'Entrez une date valide au format J-M-A',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -54,7 +54,7 @@ class Employe extends AppModel {
 		),
 		'date_naissance' => array(
 			'date' => array(
-				'rule' => array('date','dmy'),
+				'rule' => array('date','ymd'),
 				'message' => 'Entrez une date valide au format J-M-A',
 				//'allowEmpty' => false,
 				//'required' => false,

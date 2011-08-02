@@ -132,7 +132,8 @@ INSERT INTO `employes` (`id`, `matricule`, `nom`, `prenom`, `genre`, `categorie`
 (1, '234556', 'bidul', 'bobo', 'M', 'CD', '', '2011-07-24', '2011-07-24', 'ici', '2344500', 2, 'azaz', '00000000', '00000000', 'demo@go.fr', 'zerr.jpg', 1, 0, '', ''),
 (2, '909HFSIOJ', 'Nkoma', 'Jean', 'M', 'AE', 'Chef', '2011-07-27', '2011-07-27', 'France', '9323NFUJ328', 2, 'France', '0678905487', '0648939890', 'nkomajean@demo.fr', 'Koala.jpg', 1, 780831, 'image/jpeg', 'img\\employe\\photo'),
 (3, 'IVCH87E48IJVDSH80', 'Ngoma', 'Martine', 'M', 'AM', 'employé', '0000-00-00', '0000-00-00', 'Paris', '88923BHIJFC02190', 3, 'Rue bidule', '0632863190', '0632863190', 'ngomamartin@yahoo.fr', 'Hydrangeas.jpg', 1, 595284, 'image/jpeg', 'img\\model\\field');
-
+SELECT DATE_FORMAT( `date_naissance` , '%d-%m-%y' ) FROM `employes`;
+SELECT DATE_FORMAT( `date_embauche`` , '%d-%m-%y' ) FROM `employes`;
 -- --------------------------------------------------------
 
 --

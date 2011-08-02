@@ -27,7 +27,11 @@ class CommentairesController extends AppController {
 				$this->Session->setFlash(__('The commentaire could not be saved. Please, try again.', true));
 			}
 		}
-		$employes = $this->Commentaire->Employe->find('list');
+		$employes = $this->Commentaire->Employe->find('list',
+		 array(
+		 "fields"=>array("id","nom","prenom")
+		 )
+		 );
 		$utilisateurs = $this->Commentaire->Utilisateur->find('list');
 		$this->set(compact('employes', 'utilisateurs'));
 	}
@@ -48,7 +52,10 @@ class CommentairesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Commentaire->read(null, $id);
 		}
-		$employes = $this->Commentaire->Employe->find('list');
+		$employes = $this->Commentaire->Employe->find('list',
+		 array(
+		 "fields"=>array("id","nom","prenom")
+		 ));
 		$utilisateurs = $this->Commentaire->Utilisateur->find('list');
 		$this->set(compact('employes', 'utilisateurs'));
 	}

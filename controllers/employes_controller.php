@@ -3,7 +3,7 @@ class EmployesController extends AppController {
 
 	var $name = 'Employes';
 	 var $paginate = array(
-	'limit' => 1,
+	'limit' => 3,
 	'order' => array(
 	'Employe.nom' => 'asc'
 	));
@@ -62,7 +62,11 @@ class EmployesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Employe->read(null, $id);
 		}
-		$departements = $this->Employe->Departement->find('list');
+		$departements = $this->Employe->Departement->find('list',
+		 array(
+		 "fields"=>array("id","nom"),
+		 "Recursive"=>-1,
+		 ));
 		$this->set(compact('departements'));
 	}
 

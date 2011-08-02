@@ -1,27 +1,40 @@
+ <h2>Ajouter un Département</h2>
+<hr/>
+ <div style="margin:20px auto; width:550px;">
 <div class="departements form">
 <?php echo $this->Form->create('Departement');?>
-	<fieldset>
-		<legend><?php __('Admin Add Departement'); ?></legend>
 	<?php
-		echo $this->Form->input('nom');
-		echo $this->Form->input('statut');
-		echo $this->Form->input('grade');
+		echo $this->Form->input('nom',
+					array(
+		'div'=>'input long',
+		'label'=>'Nom',
+		
+		));
+		echo $this->Form->input('statut',
+					array(
+		'div'=>'input long',
+		'label'=>'Statut',
+		
+		));
+		echo $this->Form->input('grade',
+					array(
+		'div'=>'input long',
+		'label'=>'Grade',
+		
+		));
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
+	
+	
+	<div style="margin-top:10px;">
 
-		<li><?php echo $this->Html->link(__('List Departements', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Commentaires', true), array('controller' => 'commentaires', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commentaire', true), array('controller' => 'commentaires', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Documents', true), array('controller' => 'documents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Document', true), array('controller' => 'documents', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Utilisateurs', true), array('controller' => 'utilisateurs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Utilisateur', true), array('controller' => 'utilisateurs', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+	    <?php
+	    
+    echo $form->button('Réinitialiser le formulaire', array('type'=>'reset',"class"=>"button"));
+    echo $form->button('Enregistrer', array('type'=>'submit',"class"=>"button",'style'=>"margin-left:10px;"));
+    echo $this->Html->link(__('Annuler', true), 
+    array('controller' => 'departements', 'action' => 'index'),
+    array("class"=>"button",'style'=>"margin-left:10px;"));
+    ?>
+	</div>	
+	<?php echo $this->Form->end();?>
+</div></div>

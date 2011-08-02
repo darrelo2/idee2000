@@ -1,29 +1,111 @@
-<div class="utilisateurs form">
-<?php echo $this->Form->create('Utilisateur');?>
-	<fieldset>
-		<legend><?php __('Edit Utilisateur'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('lastvisitDate');
-		echo $this->Form->input('groupe_id');
-		echo $this->Form->input('employe_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
+<h2>Modifier un utilisateur</h2>
+<hr/>
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Utilisateur.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Utilisateur.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Utilisateurs', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Groupes', true), array('controller' => 'groupes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Groupe', true), array('controller' => 'groupes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Commentaires', true), array('controller' => 'commentaires', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commentaire', true), array('controller' => 'commentaires', 'action' => 'add')); ?> </li>
-	</ul>
+ <div style="margin:20px auto; width:550px;">
+
+<?php
+echo $form->create('Utilisateur',
+array(
+	'action' => 'add',
+	'class' => 'form has-validation',
+
+));
+?>
+	<div class="clearfix ">
+
+	
+	<?php echo $form->label('username','Identifiant :', array("class"=>"form-label requit")); ?>
+
+
+
+	<?php echo $form->input('username',
+	array(
+		'label'  => false,
+		'class' => 'full',
+		//'required' => 'required',
+		'placeholder' => 'Identifiant',
+		'div'=>'input long',
+	));
+	echo $this->Form->input('id');
+	?>
+	</div>
+	<div class="clearfix ">
+
+
+	<?php echo $form->label('passwd','Mot de passe :', array("class"=>"form-label requit")); ?>
+
+	<?php echo $form->input('passwd',
+	array(
+		'label'  => false,
+		'type' => 'password',
+		'required' => 'required',
+		'value' => 'password',
+		'div'=>'input long',
+	));
+	?>
+	</div>
+	<div class="clearfix ">
+
+
+	<?php echo $form->label('password_confirm','Confirmation :', array("class"=>"form-label requit")); ?>
+
+
+
+	<?php echo $form->input('password_confirm',
+	array(
+		'label'  => false,
+		'type' => 'password',
+		'required' => 'required',
+		'value' => 'password',
+		'div'=>'input long',
+	));
+	?>
+	</div>
+	<div class="clearfix ">
+
+
+	<?php echo $form->label('Utilisateur.groupe_id','Groupe :', array("class"=>"form-label requit")); ?>
+
+
+
+	<?php echo $form->input('Utilisateur.groupe_id',
+	array(
+		'label'  => false,
+		//'required' => 'required',
+		'div'=>'input long',
+	));
+	?>
+	</div>
+	<div class="clearfix ">
+
+
+	<?php echo $form->label('Utilisateur.employe_id','Employé :', array("class"=>"form-label requit")); ?>
+
+
+
+	<?php echo $form->input('Utilisateur.employe_id',
+	array(
+		'label'  => false,
+		'div'=>'input long',
+	));
+	echo $this->Form->input('lastvisitDate',
+		array(
+				'type'=>'hidden'
+				
+		     ));
+	?>
+	</div>
+	<div style="margin-top:10px;">
+
+	    <?php
+
+    echo $form->button('Réinitialiser le formulaire', array('type'=>'reset',"class"=>"button"));
+    echo $form->button('Enregistrer', array('type'=>'submit',"class"=>"button",'style'=>"margin-left:10px;"));
+    echo $this->Html->link(__('Annuler', true), 
+    array('controller' => 'Utilisateurs', 'action' => 'index'),
+    array("class"=>"button",'style'=>"margin-left:10px;"));
+    ?>
+	</div>		
+
+	<?php echo $form->end();?>
 </div>

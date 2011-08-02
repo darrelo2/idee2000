@@ -20,6 +20,7 @@
 		
 
             </div>
+			<div class="cb"></div>
             <div class="right">
                 <form action="#" id="search" class="search placeholder">
                     

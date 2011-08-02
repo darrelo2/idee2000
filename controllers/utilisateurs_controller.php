@@ -74,10 +74,16 @@ class UtilisateursController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid utilisateur', true));
+			$this->Session->setFlash(__("Cet utilisateur n'existe pas", true));
 			$this->redirect(array('action' => 'index'));
 		}
+		$employes = $this->Utilisateur->Employe->find('all',
+			 array(
+		 "fields"=>array("id","nom","prenom")
+		 )
+		);
 		$this->set('utilisateur', $this->Utilisateur->read(null, $id));
+		$this->set('employes', $employes);
 	}
 
 	function add() {
@@ -103,41 +109,50 @@ class UtilisateursController extends AppController {
 		
 			));
 		$this->set(compact('groupes', 'employes'));
-		$hashedPasswords = $this->Auth->hashPasswords($this->data);
-		print_r($hashedPasswords);
+	
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid utilisateur', true));
+			$this->Session->setFlash(__("Cet utilisateur n'existe pas", true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Utilisateur->save($this->data)) {
-				$this->Session->setFlash(__('The utilisateur has been saved', true));
+				$this->Session->setFlash(__('Utilisateur enregistré', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The utilisateur could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__("L'utilisateur n'a pas pu être enregistré. Certaines données sont erronées.", true));
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Utilisateur->read(null, $id);
 		}
-		$groupes = $this->Utilisateur->Groupe->find('list');
-		$employes = $this->Utilisateur->Employe->find('list');
+		$groupes = $this->Utilisateur->Groupe->find('list',
+			array(
+				"Recursive"=>-2,
+				"fields"=>array("id","nom"),
+		
+			));
+		$employes = $this->Utilisateur->Employe->find('list',
+			array(
+				"Recursive"=>-2,
+				"fields"=>array("id","nom"),
+		
+			));
 		$this->set(compact('groupes', 'employes'));
 	}
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for utilisateur', true));
+			$this->Session->setFlash(__('Identifiant invalide', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Utilisateur->delete($id)) {
-			$this->Session->setFlash(__('Utilisateur deleted', true));
+			$this->Session->setFlash(__('Utilisateur supprimé', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Utilisateur was not deleted', true));
+		$this->Session->setFlash(__('Utilisateur non supprimé', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

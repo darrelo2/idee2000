@@ -1,31 +1,32 @@
-<div class="commentaires form">
+<h2>Modifier un commentaire</h2>
+ <div style="margin:20px auto; width:550px;">
 <?php echo $this->Form->create('Commentaire');?>
-	<fieldset>
-		<legend><?php __('Admin Edit Commentaire'); ?></legend>
+
 	<?php
-		echo $this->Form->input('id');
 		echo $this->Form->input('contenu');
 		echo $this->Form->input('employe_id');
-		echo $this->Form->input('departement_id');
-		echo $this->Form->input('utilisateur_id');
-		echo $this->Form->input('groupe_id');
+		echo $this->Form->input('id');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
+	
+	<div style="margin-top:10px;">
 
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Commentaire.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Commentaire.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Commentaires', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Departements', true), array('controller' => 'departements', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Departement', true), array('controller' => 'departements', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Utilisateurs', true), array('controller' => 'utilisateurs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Utilisateur', true), array('controller' => 'utilisateurs', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Groupes', true), array('controller' => 'groupes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Groupe', true), array('controller' => 'groupes', 'action' => 'add')); ?> </li>
-	</ul>
+	    <?php
+		echo $this->Form->input('utilisateur_id',
+		array(
+		'type' => 'hidden',
+		'value'=>$this->Session->read('Auth.Utilisateur.id')
+		));
+	
+	    
+	    
+	    
+    echo $form->button('Réinitialiser le formulaire', array('type'=>'reset',"class"=>"button"));
+    echo $form->button('Enregistrer', array('type'=>'submit',"class"=>"button",'style'=>"margin-left:10px;"));
+    echo $this->Html->link(__('Annuler', true), 
+    array('controller' => 'commentaires', 'action' => 'index'),
+    array("class"=>"button",'style'=>"margin-left:10px;"));
+    ?>
+	</div>
+	
+<?php echo $this->Form->end();?>
 </div>

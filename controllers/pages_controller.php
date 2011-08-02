@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array();
+	var $uses = array('Groupe','Employe','Commentaire','Departement','Document','Utilisateur');
 
 /**
  * Displays a view
@@ -67,8 +67,8 @@ class PagesController extends AppController {
 		if (!$count) {
 			$this->redirect('/');
 		}
-		$page = $subpage = $title_for_layout = null;
-
+		$page = $subpage = null;
+		$title_for_layout = "Gestion du personnel";
 		if (!empty($path[0])) {
 			$page = $path[0];
 		}
@@ -76,9 +76,20 @@ class PagesController extends AppController {
 			$subpage = $path[1];
 		}
 		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
+			//$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->render(implode('/', $path));
+		$employes = $this->Employe->find('all');
+		$groupes = $this->Groupe->find('all');
+		$commentaires = $this->Commentaire->find('all');
+		$departements = $this->Departement->find('all');
+		$documents = $this->Document->find('all');
+		$utilisateurs = $this->Utilisateur->find('all');
+		$this->set(compact('page', 'subpage', 'title_for_layout','employes','groupes','commentaires','departements','documents','utilisateurs'));
+		$this->layout='accueil';
+		$this->render('home');
+		
 	}
+	 function index(){
+		
+	 }
 }

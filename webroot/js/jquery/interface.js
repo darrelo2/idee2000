@@ -17,7 +17,8 @@
 	$( ".datepicker" ).datepicker({
 		changeMonth: true,changeYear: true,
 		dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
-		dateFormat: 'dd-mm-yy',
+		dateFormat: 'yy-mm-dd',
+		maxDate: new Date('+1m +1w'),
 		firstDay: 1,
 		monthNamesShort: ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'] });
 	
@@ -41,14 +42,46 @@
 		$(this).addClass("hide");	
 			
 		}
+	return false;	
+	});	
+	//Système d'accordéon SideBar
+	$(".title a").attr("href", "#");
+	$(".title a").addClass("toggle");
+	$("#sidebar .submenu").hide();
+	$("#sidebar .current ul").show();
+	$("#sidebar ul").prev().click(function(){
+		var $elmt = $(this).next();
+		var $submenu = $(this).next().parent();
 		
+		if(!$(this).parent().hasClass("nosubmenu") && $(this).attr("href")){
+			if(!$elmt.is(":visible")){
+			$("li").removeClass("current");
+			$(this).parent().addClass('current');
+			$("#sidebar .submenu").slideUp();
+			
+			$elmt.slideDown();
+			}else{
+			$elmt.slideUp();
+			$(this).parent().removeClass('current');
+			}
+		}
+		
+		
+		
+		return false;
+	});
+	$("#sidebar .submenu li a").prev().click(function(){
+		$(this).parent().parent().parent.addClass("current");
+		alert('ok');
+	return false;
+	
 	});
 	//Impression de la zone
 	function printDiv(divId) { 
 	$(divId).jqprint();
 }
 	$(".imprimer").click( function() {
-                    $('.centre').jqprint();
+                    $('#content').jqprint();
                     return false;
                 });
 	

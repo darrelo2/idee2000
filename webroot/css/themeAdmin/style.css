@@ -9,7 +9,8 @@
 body{
 	font-size: 12px;
 	font-family:  Arial, Helvetica, Sans-serif;
-	background: url(img/bg.png);
+	background: url(img/white-bg.png);
+	/*background:#ddd;*/
 
 }
 .cb, .clear{
@@ -276,7 +277,7 @@ option {
 }
 #content h1{
 	font-family: HattoriHanzoLight;
-	color: #FFFFFF;
+	color: #666;
 	/*+text-shadow:0px 1px 0px #000000;*/
 	-moz-text-shadow: 0px 1px 0px #000000;
 	-webkit-text-shadow: 0px 1px 0px #000000;
@@ -370,7 +371,7 @@ option {
 }
 #content.login div.input label{
 	font-size:20px;
-	color: #FFF;
+	color: #666;
 }
 #content.login div.submit{
 	margin:10px;
@@ -506,7 +507,7 @@ option {
 	margin: 0 auto;
 }
 #content .bloc .shortcut{
-	width: 105px;
+	width: 95px;
 	text-align: center;
 	padding: 10px 0;
 	text-decoration: none;
@@ -542,11 +543,21 @@ option {
 #content .bloc .shortcut img{
 	display: block;
 	margin: 0 auto 10px;
-	max-width: 48px;
-	max-height: 48px;
+	max-width: 38px;
+	max-height: 38px;
 	
+}	h2,h1,h3{
+	border-bottom: 1px dotted #ccc;
 }
-
+	.sorting_asc {
+    background: url("img/sort_asc.png") no-repeat scroll right center transparent;
+	}
+	.sorting_desc {
+    background: url("img/sort_desc.png") no-repeat scroll right center transparent;
+	}
+	.sorting {
+    background: url("img/sort_both.png") no-repeat scroll right center transparent;
+	}
 	#content table{
 	width: 100%;
 	 border: 0;
@@ -554,7 +565,33 @@ option {
 	 border-collapse: collapse; 
 	
 	}
+	 #content .dataTables_filter {
+    float: right;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    text-align: right;
+    width: 50%;
+	}
+	#content .dataTables_length {
+    float: left;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    width: 40%;
+	}
+	#content .paginate_enabled_next {
+    background-image: url("img/forward_enabled.png");
+	}
+	#content .paginate_enabled_previous {
+    background-image: url("img/back_enabled.png");
+	}
 
+	#content .paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+    cursor: pointer;
+    float: left;
+    height: 19px;
+    margin-left: 3px;
+    width: 19px;
+	}
 	 #content table thead th
 	 {
 	 	font-size: 13px;

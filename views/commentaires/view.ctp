@@ -1,10 +1,27 @@
 <div class="commentaires view">
-<h2><?php  __('Commentaire');?></h2>
+	<h2><?php  __('Commentaire');?></h2>
+
+<div class="actions">
+<div class="bloc">
+    <div class="title">
+        <h3><?php __('Actions'); ?></h3>
+    </div>
+	<div class="content">
+	
+		<ul id="nav">
+		<li><?php echo $this->Html->link(__('Modifier', true), array('action' => 'edit', $commentaire['Commentaire']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $commentaire['Commentaire']['id']), null, 'Voulez vous vraiment supprimer ce commentaire ?'); ?> </li>
+		<li><?php echo $this->Html->link(__('Liste', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nouveau', true), array('action' => 'add')); ?> </li>
+	</ul>
+    </div></div></div><br/>
+	<div class="bloc">
+    <div class="title">
+        <h2><?php  __('Commentaire');?></h2>
+    </div>
+	<div class="content">
+	
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $commentaire['Commentaire']['id']; ?>
-			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contenu'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -13,26 +30,14 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Employe'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($commentaire['Employe']['id'], array('controller' => 'employes', 'action' => 'view', $commentaire['Employe']['id'])); ?>
+			<?php echo $this->Html->link($commentaire['Employe']['nom']." ".$commentaire['Employe']['prenom'], array('controller' => 'employes', 'action' => 'view', $commentaire['Employe']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Utilisateur'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($commentaire['Utilisateur']['id'], array('controller' => 'utilisateurs', 'action' => 'view', $commentaire['Utilisateur']['id'])); ?>
+			<?php echo $this->Html->link($commentaire['Utilisateur']['username'], array('controller' => 'utilisateurs', 'action' => 'view', $commentaire['Utilisateur']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Commentaire', true), array('action' => 'edit', $commentaire['Commentaire']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Commentaire', true), array('action' => 'delete', $commentaire['Commentaire']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $commentaire['Commentaire']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Commentaires', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commentaire', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Employes', true), array('controller' => 'employes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Employe', true), array('controller' => 'employes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Utilisateurs', true), array('controller' => 'utilisateurs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Utilisateur', true), array('controller' => 'utilisateurs', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+</div></div></div>
+
