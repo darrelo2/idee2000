@@ -73,7 +73,7 @@ class EmployesController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Identifiant invalide', true));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect($this->referer());
 		}
 		if ($this->Employe->delete($id)) {
 			$this->Session->setFlash(__('Employé supprimé', true));
@@ -83,6 +83,39 @@ class EmployesController extends AppController {
 		true));
 		$this->redirect(array('action' => 'index'));
 	}
+	/*Permet de génerer un fichier PDF à partir des informations d'un client
+	 *@param: id
+	 */
+	function pdf_employe($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Identifiant invalide', true));
+			$this->redirect(array('action'=>'index'));
+		}
+		$employes = $this->Employe->find('all',
+			 array(
+		 "fields"=>array("id","nom","prenom")
+		 )
+		);
+		$this->set('employe', $this->Employe->read(null, $id));
+		$this->set('employes', $employes);
+		 App::import('Vendor', 'html2pdf', array('file' => 'pdf'.DS.'html2pdf.class.php'));
+		$this->layout = "pdf_layout";
+	}
+	function telecharger ($filename) {
+		$ext = substr(strtolower(strrchr(basename($filename),".")),1);
+		$nom = substr($filename,0,strpos($filename,"."));
+        $this->view = 'Media';
+        $params = array(
+              'id'        => $filename,
+              'name'      => $nom,
+              'download'  => true,
+              'extension' => $ext,
+              'path'      => APP.'webroot'.DS.'img'.DS.'employes'.DS.'pdf'.DS,
+	      'mimeType' => array('pdf' => 'application/pdf')
+       );
+       
+       $this->set($params);
+    }
 		 
 
 

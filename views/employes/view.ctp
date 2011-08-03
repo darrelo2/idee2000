@@ -14,7 +14,7 @@
 		<li><?php echo $this->Html->link(__('Supprimer', true), array('action' => 'delete', $employe['Employe']['id']), null, sprintf(__('Voulez vous vraiment supprimer :  %s?', true), $employe['Employe']['nom']." ".$employe['Employe']['prenom'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Liste des Employés', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Nouvel Employé', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Fiche en PDF', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Fiche en PDF', true), array('action' => 'pdf_employe',$employe['Employe']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Imprimer', true), "#",array("title"=>"Imprimer la fiche de l'employé", "class"=>"imprimer")); ?> </li>
 	</ul>
     </div></div></div><br/>
@@ -263,9 +263,9 @@
 			$tabType["video"] = array("avi","mp4","mpeg","flv","wmv");
 			$tabType["image"] = array("jpg","jpeg","png","gif","svg","bmp");
 			$tabType["audio"] =array("mp3","acc","wav","wma");
-			$tabType["tableur"] =array("xls","ods","ots");
+			$tabType["tableur"] =array("xls","xlsx","ods","ots");
 			$tabType["archive"] =array("zip","rar","7zip","tar");
-			$tabType["presentation"] =array("ppt","pps","odp","otp");
+			$tabType["presentation"] =array("ppt","pptx","pps","odp","otp");
 			$tabType["doc"] =array("doc","docx","odt","ott");
 			$tabType["pdf"] =array("pdf","djv","pfm");
 			$type ="";
