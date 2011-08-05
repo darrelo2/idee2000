@@ -7,7 +7,7 @@ class UtilisateursController extends AppController {
 		$this->Auth->authenticate = ClassRegistry::init('Utilisateur');
 		//$this->Auth->autoRedirect = false;
 		parent::beforeFilter();
-		$this->Auth->Allow("*");
+		//$this->Auth->Allow("*");
 	}
 	
 	function convertPasswords()
@@ -74,8 +74,9 @@ class UtilisateursController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__("Cet utilisateur n'existe pas", true));
+			$this->Session->setFlash("Cet utilisateur n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		$employes = $this->Utilisateur->Employe->find('all',
 			 array(
@@ -90,10 +91,10 @@ class UtilisateursController extends AppController {
 		if (!empty($this->data)) {
 			$this->Utilisateur->create();
 			if ($this->Utilisateur->save($this->data)) {
-				$this->Session->setFlash(__("L'Utilisateur a été enregistré", true));
+				$this->Session->setFlash("L'Utilisateur a été enregistré", 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("L'Utilisateur n'a pas été enregistré. Essayez à nouveau.", true));
+				$this->Session->setFlash("L'Utilisateur n'a pas été enregistré. Essayez à nouveau.", 'message_error');
 			}
 		}
 		$groupes = $this->Utilisateur->Groupe->find('list',
@@ -114,15 +115,16 @@ class UtilisateursController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__("Cet utilisateur n'existe pas", true));
+			$this->Session->setFlash("Cet utilisateur n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if (!empty($this->data)) {
 			if ($this->Utilisateur->save($this->data)) {
-				$this->Session->setFlash(__('Utilisateur enregistré', true));
+				$this->Session->setFlash('Utilisateur enregistré', 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("L'utilisateur n'a pas pu être enregistré. Certaines données sont erronées.", true));
+				$this->Session->setFlash("L'utilisateur n'a pas pu être enregistré. Certaines données sont erronées.", 'message_error');
 			}
 		}
 		if (empty($this->data)) {
@@ -145,14 +147,15 @@ class UtilisateursController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Identifiant invalide', true));
+			$this->Session->setFlash('Identifiant invalide', 'message_error');
 			$this->redirect(array('action'=>'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if ($this->Utilisateur->delete($id)) {
-			$this->Session->setFlash(__('Utilisateur supprimé', true));
+			$this->Session->setFlash('Utilisateur supprimé', 'message_ok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Utilisateur non supprimé', true));
+		$this->Session->setFlash('Utilisateur non supprimé', 'message_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

@@ -142,7 +142,7 @@
                                                 <li>
 												<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter documents',
-					array('controller' => 'documents', 'action' => 'add'),
+					array('controller' => 'documents', 'action' => 'list_employe'),
 					array('class'=>'shortcut','escape' => false,'title'=>"Ajouter les documents d'un employé")
 				);
 	?>										

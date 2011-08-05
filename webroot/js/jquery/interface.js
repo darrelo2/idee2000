@@ -77,11 +77,14 @@
 	
 	});
 	//Impression de la zone
-	function printDiv(divId) { 
-	$(divId).jqprint();
-}
+
 	$(".imprimer").click( function() {
                     $('#content').jqprint();
+                    return false;
+                });
+	//Suppression d'un bloc d'affichage d'erreur			
+	$(".close").click( function() {
+                    $(this).parent().remove().fadeOut('slow');
                     return false;
                 });
 	

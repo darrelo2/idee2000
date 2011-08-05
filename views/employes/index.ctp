@@ -10,7 +10,7 @@
 			<th><?php echo $this->Paginator->sort('Prénom','prenom');?></th>
 			<th><?php echo $this->Paginator->sort('Genre','genre');?></th>
 			<th><?php echo $this->Paginator->sort('Categorie','categorie');?></th>
-			<th><?php echo $this->Paginator->sort('Grade','grade');?></th>
+			
 			<th><?php echo $this->Paginator->sort('Date de naissance','date_naissance');?></th>
 			<th><?php echo $this->Paginator->sort("Date d'embauche",'date_embauche');?></th>			
 			<th><?php echo $this->Paginator->sort("Matricule",'matricule');?></th>
@@ -67,7 +67,7 @@
 			?>
 			&nbsp;
 		</td>
-		<td><?php echo $employe['Employe']['grade']; ?>&nbsp;</td>	
+	
 		<td>
 		<?php
 		echo date('d-m-Y', strtotime ( $employe['Employe']['date_naissance']));

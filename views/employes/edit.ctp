@@ -97,7 +97,7 @@
 		array(
 		'div'=>'input long',
 		'label'=>'Numéro de matricule',
-		
+		'disabled'=>true,
 		));?>
 		<?php echo $this->Form->input('grade',
 		array(

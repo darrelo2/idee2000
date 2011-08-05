@@ -290,53 +290,53 @@
 				case "video":
 				   echo $this->Html->link(
 		$this->Html->image('documents/icons/video.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false));
 				    break;
 				case "image":
 				   echo $this->Html->link(
 		$this->Html->image('documents/icons/image.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false));
 				    break;
 				case "audio":
 				   echo $this->Html->link(
 		$this->Html->image('documents/icons/audio.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false));
 				    break;
 				case "tableur":
 				   echo $this->Html->link(
 		$this->Html->image('documents/icons/tableur.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false)
 				);
 				    break;
 				case "archive":
 				   echo $this->Html->link(
 		$this->Html->image('documents/icons/archive.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false)
 				);
 				    break;
 				case "presentation":
 		   echo $this->Html->link(
 		$this->Html->image('documents/icons/diapo.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false)
 				);
 				    break;
 				case "doc":
 		   echo $this->Html->link(
 		$this->Html->image('documents/icons/doc.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false)
 				);
 				    break;
 				case "pdf":
 		   echo $this->Html->link(
 		$this->Html->image('documents/icons/pdf.png', array('width'=>'60','height'=>'60','alt'=>'photo', 'border' => '0')),
-		array('action' => 'view', $employe['Employe']['id']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false)
 				);
 				    break;
@@ -352,14 +352,14 @@
 				<?php
 		echo $this->Html->link(
 		$this->Html->image('themeAdmin/icons/load.png', array('width'=>'30','height'=>'30','alt'=>'photo', 'border' => '0')),
-		array('controller' => 'documents', 'action' => 'telecharger',$document['nom_fichier']),
+		array('controller' => 'documents', 'action' => 'telecharger',$document['id']),
 		array('escape' => false,"title"=>"Télécharger ce fichier","style"=>"text-decoration:none","style"=>"text-decoration:none; text-align:rigth;margin-left:30px;")
 				);
 		?>
 		<?php
 		echo $this->Html->link(
 		$this->Html->image('themeAdmin/icons/sup.png', array('width'=>'30','height'=>'30','alt'=>'photo', 'border' => '0')),
-		array('controller' => 'utilisateurs', 'action' => 'delete',$document["id"]),
+		array('controller' => 'documents', 'action' => 'delete',$document["id"]),
 		array('escape' => false,"title"=>"Supprimer","style"=>"text-decoration:none; text-align:rigth;margin-left:30px;"),
 		"Voulez vous vraiment supprimer ce document ?"
 				);
@@ -373,7 +373,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('Nouveau Document', true), array('controller' => 'documents', 'action' => 'add'),array("class"=>"button"));?> </li>
+			<li><?php echo $this->Html->link(__('Nouveau Document', true),array('controller' => 'documents', 'action' => 'uploader',$employe['Employe']['id']),array("class"=>"button"));?> </li>
 		</ul>
 	</div>
 </div><br/>

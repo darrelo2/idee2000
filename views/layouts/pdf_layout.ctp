@@ -73,7 +73,7 @@
 	<div class="bloc requet">
 		<div class="content">
 		<?php
-		$fichier = 'fiche_'.$employe['Employe']['nom']."-".$employe['Employe']['prenom'].'.pdf';
+		$fichier = 'fiche_'.$employe['Employe']['nom']."-".$employe['Employe']['prenom']."_".$employe['Employe']['matricule'].'.pdf';
 		echo $html->link('Télécharger',array('controller'=>'employes', 'action'=>'telecharger', $fichier),array("class"=>"button"));
 	
 		?>

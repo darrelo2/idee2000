@@ -66,5 +66,17 @@ class AppController extends Controller {
  
 	function _autoLoginError($cookie) { 
 	} 
+	function _setErrorLayout() {
+		if ($this->name == 'CakeError')
+		{
+                        // Si on a une erreur, on utilise notre layout crée au début de l'article
+			$this->layout = 'error';
+		}
+	}
+ 
+        // On effectue un test avant de rendre la vue
+	function beforeRender () {
+		$this->_setErrorLayout();
+	}
 	
 }

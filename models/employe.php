@@ -11,6 +11,14 @@ class Employe extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'Ce matricule est déjà utilisé par un autre employé',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
 		),
 		'nom' => array(
 			'notempty' => array(
@@ -86,6 +94,14 @@ class Employe extends AppModel {
 			'email' => array(
 				'rule' => array('email'),
 				'message' => "Votre email n'est pas au bon format",
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'Cet adrasse email est déjà utilisé par un autre employé',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -170,5 +186,21 @@ class Employe extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	function createStatement($data)
+	{
+	  $statement = array();
+	 
+	  if(isset($data['nom']))
+	  {
+	    array_push($statement, array("{$this->name}.nom LIKE" => '%' . $data['nom'] . '%'));
+	  }
+	 
+	  if(isset($data['departement']))
+	  {
+	    array_push($statement, array("{$this->name}.departement_id" => $data['departement']));
+	  }
+	 
+	  return $statement;
+	}
 
 }

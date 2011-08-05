@@ -15,8 +15,9 @@ class EmployesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__("Cet employé n'existe pas ", true));
+			$this->Session->setFlash("Cet employé n'existe pas ", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		$employes = $this->Employe->find('all',
 			 array(
@@ -32,10 +33,10 @@ class EmployesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Employe->create();
 			if ($this->Employe->save($this->data)) {
-				$this->Session->setFlash(__("L'employé a été enregistré", true));
+				$this->Session->setFlash("L'employé a été enregistré", 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("L'employé n'a pas pu être enregistré. Certaines données sont erronées.", true));
+				$this->Session->setFlash("L'employé n'a pas pu être enregistré. Certaines données sont erronées.", 'message_error');
 			}
 		}
 		$departements = $this->Employe->Departement->find('list',
@@ -48,15 +49,15 @@ class EmployesController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__("Cet employé n'existe pas", true));
+			$this->Session->setFlash("Cet employé n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Employe->save($this->data)) {
-				$this->Session->setFlash(__("L'employé a été enregistré", true));
+				$this->Session->setFlash("L'employé a été enregistré", 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("L'employé n'a pas pu être enregistré. Certaines données sont erronées.", true));
+				$this->Session->setFlash("L'employé n'a pas pu être enregistré. Certaines données sont erronées.", 'message_error');
 			}
 		}
 		if (empty($this->data)) {
@@ -72,15 +73,16 @@ class EmployesController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Identifiant invalide', true));
+			$this->Session->setFlash('Identifiant invalide', 'message_error');
 			$this->redirect($this->referer());
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if ($this->Employe->delete($id)) {
-			$this->Session->setFlash(__('Employé supprimé', true));
+			$this->Session->setFlash('Employé supprimé', 'message_ok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__("L'employe n'a pas été supprimé",
-		true));
+		$this->Session->setFlash("L'employe n'a pas été supprimé",
+		'message_error');
 		$this->redirect(array('action' => 'index'));
 	}
 	/*Permet de génerer un fichier PDF à partir des informations d'un client
@@ -88,8 +90,9 @@ class EmployesController extends AppController {
 	 */
 	function pdf_employe($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Identifiant invalide', true));
+			$this->Session->setFlash('Identifiant invalide', 'message_error');
 			$this->redirect(array('action'=>'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		$employes = $this->Employe->find('all',
 			 array(

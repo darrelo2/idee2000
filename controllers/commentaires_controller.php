@@ -11,8 +11,9 @@ class CommentairesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid commentaire', true));
+			$this->Session->setFlash("Ce Commentaire n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		$this->set('commentaire', $this->Commentaire->read(null, $id));
 	}
@@ -21,10 +22,10 @@ class CommentairesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Commentaire->create();
 			if ($this->Commentaire->save($this->data)) {
-				$this->Session->setFlash(__('The commentaire has been saved', true));
+				$this->Session->setFlash('Commentaire enregistré', 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The commentaire could not be saved. Please, try again.', true));
+				$this->Session->setFlash('Commentaire non enregistré.', 'message_error');
 			}
 		}
 		$employes = $this->Commentaire->Employe->find('list',
@@ -38,15 +39,16 @@ class CommentairesController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid commentaire', true));
+			$this->Session->setFlash("Ce Commentaire n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if (!empty($this->data)) {
 			if ($this->Commentaire->save($this->data)) {
-				$this->Session->setFlash(__('The commentaire has been saved', true));
+				$this->Session->setFlash('Commentaire enregistré', 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The commentaire could not be saved. Please, try again.', true));
+				$this->Session->setFlash('Commentaire non enregistré.', 'message_error');
 			}
 		}
 		if (empty($this->data)) {
@@ -62,14 +64,15 @@ class CommentairesController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for commentaire', true));
+			$this->Session->setFlash("Ce Commentaire n'existe pas", 'message_error');
 			$this->redirect(array('action'=>'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if ($this->Commentaire->delete($id)) {
-			$this->Session->setFlash(__('Commentaire deleted', true));
+			$this->Session->setFlash('Commentaire supprimé', 'message_ok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Commentaire was not deleted', true));
+		$this->Session->setFlash("Commentaire n'a pas été supprimé", 'message_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

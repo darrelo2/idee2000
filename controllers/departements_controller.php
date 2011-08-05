@@ -14,8 +14,9 @@ class DepartementsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__("Cet département n'existe pas", true));
+			$this->Session->setFlash("Cet département n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		$this->set('departement', $this->Departement->read(null, $id),$this->paginate());
 	}
@@ -24,25 +25,26 @@ class DepartementsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Departement->create();
 			if ($this->Departement->save($this->data)) {
-				$this->Session->setFlash(__("Le departement a été enregistré", true));
+				$this->Session->setFlash("Le departement a été enregistré", 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("Le département n'a pas pu être enregistré. Certaines données sont erronées.", true));
+				$this->Session->setFlash("Le département n'a pas pu être enregistré. Certaines données sont erronées.", 'message_error');
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__("cet département n'existe pas", true));
+			$this->Session->setFlash("cet département n'existe pas", 'message_error');
 			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if (!empty($this->data)) {
 			if ($this->Departement->save($this->data)) {
-				$this->Session->setFlash(__('Le departement a été modifié', true));
+				$this->Session->setFlash('Le departement a été modifié', 'message_ok');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__("Le département n'a pas pu être enregistré. Certaines données sont erronées.", true));
+				$this->Session->setFlash("Le département n'a pas pu être enregistré. Certaines données sont erronées.", 'message_error');
 			}
 		}
 		if (empty($this->data)) {
@@ -52,14 +54,15 @@ class DepartementsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Identifiant invalide', true));
+			$this->Session->setFlash('Identifiant invalide', 'message_error');
 			$this->redirect(array('action'=>'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
 		}
 		if ($this->Departement->delete($id)) {
-			$this->Session->setFlash(__('Département supprimé', true));
+			$this->Session->setFlash('Département supprimé', 'message_ok');
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__("Le département ne peut être supprimé car il contient encore des employés", true));
+		$this->Session->setFlash("Le département ne peut être supprimé car il contient encore des employés", 'message_error');
 		$this->redirect(array('action' => 'index'));
 	}
 }

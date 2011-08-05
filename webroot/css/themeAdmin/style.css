@@ -1,17 +1,8 @@
-/*[fmt]0A90-1A0A-3*/
-@font-face{
-	font-family:HattoriHanzoLight;
-	src: url('fonts/hattori/hattori_hanzo-webfont.eot');
-	src: url('fonts/hattori/hattori_hanzo-webfont.eot?iefix') format('eot'), url('fonts/hattori/hattori_hanzo-webfont.woff') format('woff'), url('fonts/hattori/hattori_hanzo-webfont.ttf') format('truetype'), url('fonts/hattori/hattori_hanzo-webfont.svg#webfont2bbtnxOL') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 body{
 	font-size: 12px;
-	font-family:  Arial, Helvetica, Sans-serif;
+	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 	background: url(img/white-bg.png);
 	/*background:#ddd;*/
-
 }
 .cb, .clear{
 	clear: both;
@@ -19,6 +10,7 @@ body{
 .relative{
 	position: relative;
 }
+
 #head, #head a.button, #head .search{
 	background: url(img/spriteh.png);
 }
@@ -244,6 +236,7 @@ option {
 }
 /*********************************************** CONTENT ***********************************************************/
 #content{
+	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 	margin: 28px 40px 0px 280px;
 	color: #6D6D6D;
 	padding: 0px 0px 20px;
@@ -417,6 +410,7 @@ option {
 	font-weight: bold;
 }
 #content .bloc .content h1, #content .bloc .content h2, #content .bloc .content h3, #content .bloc .content h4, #content .bloc .content h5{
+	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 	color: #000000;
 	font-weight: bold;
 	padding: 0 0px 5px;
@@ -443,7 +437,7 @@ option {
 }
 #content .bloc .content ul, #content .bloc .content ol{
 	list-style: disc;
-	margin-left: 25px;
+	/*margin-left: 25px;*/
 	line-height: 1.5em;
 	padding: 5px 0 10px;
 }
@@ -547,6 +541,7 @@ option {
 	max-height: 38px;
 	
 }	h2,h1,h3{
+	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 	border-bottom: 1px dotted #ccc;
 }
 	.sorting_asc {
@@ -565,18 +560,23 @@ option {
 	 border-collapse: collapse; 
 	
 	}
+	#content #tableau{
+	margin-top: 25px;
+	
+	}
+	
 	 #content .dataTables_filter {
-    float: right;
-    margin-bottom: 1em;
-    margin-top: 1em;
+    
+    margin-bottom: 10px;
+    margin-top: 10px;
     text-align: right;
-    width: 50%;
+    width: 95%;
 	}
 	#content .dataTables_length {
     float: left;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    width: 40%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 60%;
 	}
 	#content .paginate_enabled_next {
     background-image: url("img/forward_enabled.png");
@@ -698,7 +698,7 @@ hr { border: none; border-bottom: 1px dotted #CCC; margin-bottom: 2em; margin-to
 				list-style: none ;
 				margin: 0 ;
 				padding: 0 ;
-				overflow: hidden ;	/* Création du contexte de formatage */
+				overflow: hidden ;	/* CrÃ©ation du contexte de formatage */
 				font-weight:bold;
 				}
 			#nav li {
@@ -861,16 +861,22 @@ hr { border: none; border-bottom: 1px dotted #CCC; margin-bottom: 2em; margin-to
 	font-weight: bold;
 }
 #content .notif.success{
-	background-color: #E9FBB4;
+	color: white;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em;
+	background-color: #95B630;
 	background-image: url(img/success.png);
 	border: 1px solid #95B630 !important;
-	color: #2E640A;
 }
 #content .notif.error{
-	background-color: #FBB4B4;
+	color: white;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 0 0 1em;
+	background-color: #E32E32;
 	background-image: url(img/error.png);
 	border: 1px solid #C21C1C !important;
-	color: #C21C1C;
 }
 #content .notif.info{
 	background-color: #B6EBF9;
@@ -1309,7 +1315,7 @@ hr { border: none; border-bottom: 1px dotted #CCC; margin-bottom: 2em; margin-to
 	font-size: 17px;
 	line-height: 17px;
 	font-weight: bold;
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: tahoma, verdana,Arial,"Helvetica Neue", Helvetica, sans-serif;
 	text-transform: uppercase;
 	cursor: pointer;
 	display: block;

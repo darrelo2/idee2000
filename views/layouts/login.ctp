@@ -53,7 +53,7 @@
     <body>
                 
             <div id="content" class="login">
-				<h1>Veillez vous connectez</h1>
+				<h1>Veuillez vous connectez</h1>
 			<?php echo $content_for_layout; ?>
                 
             </div>

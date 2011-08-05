@@ -29,14 +29,11 @@
 		 echo $javascript->link("jquery/interface.js", true);
 		 echo $javascript->link("jquery/jquery.jqprint.js", true);
 		
+		
 		?>
       
         <!-- Tooltipsy - http://tooltipsy.com/ -->
         <?php echo $javascript->link("themeAdmin/tooltipsy.min.js", true); ?>
-       
-        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
-		 <?php echo $javascript->link("themeAdmin/zoombox/zoombox.js", true); ?>
-		 <?php echo $this->Html->css('themeAdmin/zoombox/zoombox.css'); ?>
         
         <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
          <?php echo $javascript->link("themeAdmin/visualize.jQuery.js", true); ?>

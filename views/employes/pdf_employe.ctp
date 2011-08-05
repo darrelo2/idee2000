@@ -14,7 +14,7 @@ table
 }
 table.reference {
     border-width: 0;
-    font: 12px 'Lucida Grande',Verdana,sans-serif;
+    font: 12px tahoma, verdana, arial,'Lucida Grande',sans-serif;
     margin-bottom: 15px;
     width: 100%;
 }
@@ -202,7 +202,7 @@ a{
  </div>
 <?php 
 	$content = ob_get_clean();
-	$filname = 'fiche_'.$employe['Employe']['nom']."-".$employe['Employe']['prenom'];
+	$filname = 'fiche_'.$employe['Employe']['nom']."-".$employe['Employe']['prenom']."_".$employe['Employe']['matricule'];
     try
     {
         $html2pdf = new HTML2PDF('P', 'A4', 'fr');

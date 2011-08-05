@@ -78,9 +78,17 @@ class Utilisateur extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'check' => array(
+			/*'check' => array(
 			'rule' => 'checkUsername',
 			'message' => 'Ce pseudonyme est déjà utilisé.'
+			),*/
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'Ce pseudonyme est déjà utilisé.',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'password_confirm' => array(
