@@ -2,6 +2,20 @@
 class UtilisateursController extends AppController {
 
 	var $name = 'Utilisateurs';
+	var $uses = array('Utilisateur','Employe','Departement');
+	var $paginate = array(
+	'Utilisateur' => array (
+	'limit' => 10,
+	'order' => array(
+	'Utilisateur.username' => 'asc'		    
+			    
+	),
+	'Employe' => array (
+	'limit' => 10,
+	'order' => array(
+	'Employe.nom' => 'asc'
+	
+	))));
 	
 	function beforeFilter(){
 		$this->Auth->authenticate = ClassRegistry::init('Utilisateur');
@@ -18,6 +32,35 @@ class UtilisateursController extends AppController {
 		if(!empty( $this->data['Utilisateur']['password_confirm'] ) ){
 			$this->data['Utilisateur']['password_confirm'] = $this->Auth->password( $this->data['Utilisateur']['password_confirm'] );
 		}
+	}
+		//Affiche la liste des employés pour la selection 
+	function list_employe() {
+		$departements=$this->Departement->find('list',
+			array(
+			  'fields'=>array('id','nom')
+			)			       
+		);
+	$this->set(compact('departements'));
+	// Nettoyage de la saisie
+	App::import('Sanitize');
+	 $Sanitizer =& new Sanitize();
+	 $Sanitizer->clean(&$this->params['named']);
+	 // Utilisons le deuxième argument de la méthode Paginate
+	// pour fournir un tableau de conditions que nous construirons
+	 // dans notre modèle à l’aide de la méthode createStatement
+	 $employes = $this->Paginate('Employe', $this->Employe->createStatement($this->params['named']));
+	
+		$this->set(compact('employes'));
+	}
+			//Renvoi le formulaire d'upload après selection d'un employé
+	function uploader($id = null) {
+		if (!$id) {
+			$this->Session->setFlash("Cet employé n'existe pas ", 'message_error');
+			$this->redirect(array('action' => 'index'));
+			$this->cakeError('error404', array(array('url' => $this->action)));
+		}
+
+		$this->set('employe', $this->Employe->read(null,$id));
 	}
 	
 /* Vérifie si la connexion à reussit
@@ -69,7 +112,7 @@ class UtilisateursController extends AppController {
 
 	function index() {
 		$this->Utilisateur->recursive = 0;
-		$this->set('utilisateurs', $this->paginate());
+		$this->set('utilisateurs', $this->paginate('Utilisateur'));
 	}
 
 	function view($id = null) {
@@ -87,7 +130,14 @@ class UtilisateursController extends AppController {
 		$this->set('employes', $employes);
 	}
 
-	function add() {
+	function add($id=null) {
+		if (!$id) {
+			$this->Session->setFlash("Cet employé n'existe pas ", 'message_error');
+			$this->redirect($this->referer());
+			$this->cakeError('error404', array(array('url' => $this->action)));
+		}
+
+		$this->set('employe', $this->Employe->read(null,$id));
 		if (!empty($this->data)) {
 			$this->Utilisateur->create();
 			if ($this->Utilisateur->save($this->data)) {
@@ -103,12 +153,7 @@ class UtilisateursController extends AppController {
 				"fields"=>array("id","nom"),
 		
 			));
-		$employes = $this->Utilisateur->Employe->find('list',
-			array(
-				"Recursive"=>-2,
-				"fields"=>array("id","nom"),
-		
-			));
+		$this->set('employe', $this->Employe->read(null,$id));
 		$this->set(compact('groupes', 'employes'));
 	
 	}

@@ -1,13 +1,11 @@
 <div class="departements index">
 	<h2><?php __('Les départements');?></h2>
-	<hr/>
+	
 	<table id="tableau">
 		<thead>
 	<tr>
 			
 			<th><?php echo $this->Paginator->sort('nom');?></th>
-			<th><?php echo $this->Paginator->sort('statut');?></th>
-			<th><?php echo $this->Paginator->sort('grade');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	</thead>
@@ -22,8 +20,6 @@
 	<tr<?php echo $class;?>>
 	
 		<td><?php echo $departement['Departement']['nom']; ?>&nbsp;</td>
-		<td><?php echo $departement['Departement']['statut']; ?>&nbsp;</td>
-		<td><?php echo $departement['Departement']['grade']; ?>&nbsp;</td>
 		<td class="actions">
 				<?php
 		echo $this->Html->link(

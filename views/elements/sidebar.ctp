@@ -83,7 +83,7 @@
                                                 <li>
 												<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/menu/pen.png').'Ajouter administrateur',
-					array('controller' => 'utilisateurs', 'action' => 'add'),
+					array('controller' => 'utilisateurs', 'action' => 'list_employe'),
 					array('class'=>'shortcut','escape' => false)
 				);
 	?>										

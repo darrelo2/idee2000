@@ -1,5 +1,5 @@
  <h2>Ajouter un utilisateur</h2>
-<hr/>
+
 
  <div style="margin:20px auto; width:550px;">
  
@@ -9,7 +9,7 @@
 <?php
 echo $form->create('Utilisateur',
 array(
-	'action' => 'add',
+	'action' => 'add/'.$employe['Employe']['id'],
 	'class' => 'form has-validation',
 
 ));
@@ -75,26 +75,27 @@ array(
 		'label'  => false,
 		//'required' => 'required',
 		'div'=>'input long',
+		'empty' => 'Selectionnez un groupe'
 	));
 	?>
 	</div>
 	<div class="clearfix ">
 
-
-	<?php echo $form->label('Utilisateur.employe_id','Employé :', array("class"=>"form-label requit")); ?>
-
-
-
-	<?php echo $form->input('Utilisateur.employe_id',
-	array(
-		'label'  => false,
-		'div'=>'input long',
-	));
+	<?php 
 	echo $this->Form->input('lastvisitDate',
 		array(
-				'type'=>'hidden'
+			'type'=>'hidden'
 				
 		     ));
+	?>
+		<?php
+	
+		echo $this->Form->input('Utilisateur.employe_id',
+					array(
+		'div'=>'input long',
+		'type'=>'hidden',
+		'value'=>$employe['Employe']['id'],
+		));
 	?>
 	</div>
 	<div class="form-action clearfix">
@@ -105,7 +106,12 @@ array(
 		<button type="reset" class="button">Effacer</button>
 
 	</div>
-	<?php echo $form->end();?>
+	<?php echo $form->end();
+	
+	
+	?>
+	
+	
 </div>
 
 

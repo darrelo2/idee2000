@@ -1,6 +1,6 @@
 body{
 	font-size: 12px;
-	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
+	font-family:  HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, time,Sans-serif;
 	background: url(img/white-bg.png);
 	/*background:#ddd;*/
 }
@@ -418,18 +418,22 @@ option {
 #content .bloc .content h2{
 	color: #1B1B1B;
 	font-size: 25px;
+	font-family:HattoriHanzoLight;
 }
 #content .bloc .content h3{
 	color: #282828;
 	font-size: 22px;
+	font-family:HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 }
 #content .bloc .content h4{
 	color: #404040;
 	font-size: 20px;
+	font-family:HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 }
 #content .bloc .content h5{
 	color: #5A5656;
 	font-size: 18px;
+	font-family:HattoriHanzoLight,tahoma, verdana,Arial, Helvetica, Sans-serif;
 }
 #content .bloc .content p{
 	padding: 5px 0 10px;
@@ -2128,4 +2132,16 @@ p.error em {
 .success {
 	background: green;
 	color: #fff;
+}
+.infobulle {
+	font-weight: normal;
+	background: #000;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    color:#FFFFFF;
+	position: absolute;
+	text-align: center;
+	font-style: normal;
+	z-index: 2;
+	padding: 3px 7px;
 }

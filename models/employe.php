@@ -13,7 +13,7 @@ class Employe extends AppModel {
 			),
 			'isUnique' => array(
 				'rule' => array('isUnique'),
-				'message' => 'Ce matricule est déjà utilisé par un autre employé',
+				'message' => 'Ce matricule est dÃ©jÃ  utilisÃ© par un autre employÃ©',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -26,6 +26,16 @@ class Employe extends AppModel {
 				'message' => 'Champ obligatoire',
 				//'allowEmpty' => false,
 				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'photo' => array(
+			'notempty' => array(
+				//'rule' => array('notempty'),
+				//'message' => 'Champ obligatoire',
+				'allowEmpty' => true,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -101,7 +111,17 @@ class Employe extends AppModel {
 			),
 			'isUnique' => array(
 				'rule' => array('isUnique'),
-				'message' => 'Cet adrasse email est déjà utilisé par un autre employé',
+				'message' => 'Cet adresse email est dÃ©jÃ  utilisÃ© par un autre employÃ©',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'numero_assurance' => array(
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'Ce numÃ©ro d\'assurance est dÃ©jÃ  utilisÃ© par un autre employÃ©',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -119,17 +139,24 @@ class Employe extends AppModel {
 			),
 		),
 	);
+	//ParamÃ¨tres du comportement (Behavior) mei_upload qui permet le transfert et le redimensionnement d'image
 	var $actsAs = array(
-	  'MeioUpload' => array(
-	    'photo' => array(
-	      'dir' => 'img/employes/photo',
-	      'create_directory' => true,
-	      'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
-	      'allowed_ext' => array('.jpg', '.jpeg', '.png'),
-	      'thumbsizes' => array(
-	        'normal' => array('width'=>300, 'height'=>300),
+		'MeioUpload' => array(
+		'photo' => array(
+		'dir' => 'img/employes/photo',
+		'required' => false,
+		'create_directory' => true,
+		'Empty' => array(
+		'check' => false
+		),
+		'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
+		'allowed_ext' => array('.jpg', '.jpeg', '.png'),
+		'thumbsizes' => array(
+		'normal' => array('width'=>300, 'height'=>300),
+		
 	),
-	      'default' => 'default.jpg',
+	      'default' => 'default.png',
+	      'max_size' => '4 Mb'
 	)
 	)
 	);

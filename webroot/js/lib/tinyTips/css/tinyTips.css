@@ -1,0 +1,18 @@
+﻿
+.tinyTip {
+    background: #000 ;
+    display: block;
+    padding: 7px 0 0;
+
+}
+.tinyTip .content {
+    background: #000 ;
+    color: #FFF;
+    font-family: "Lucida Sans Unicode";
+    font-size: 12px;
+    padding: 0 5px;
+}
+.tinyTip .bottom {
+    background: #000;
+
+}

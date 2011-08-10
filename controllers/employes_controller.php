@@ -29,8 +29,8 @@ class EmployesController extends AppController {
 	}
 
 	function add() {
-		$this->data["Employes"]["photo"]=$this->data["Employes"]["photo"]["name"];
 		if (!empty($this->data)) {
+		$this->data["Employes"]["photo"]=$this->data["Employes"]["photo"]["name"];
 			$this->Employe->create();
 			if ($this->Employe->save($this->data)) {
 				$this->Session->setFlash("L'employé a été enregistré", 'message_ok');
@@ -46,6 +46,7 @@ class EmployesController extends AppController {
 		 ));
 		$this->set(compact('departements'));
 	}
+	
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {

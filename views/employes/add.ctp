@@ -144,8 +144,8 @@
 	<div style="margin-top:10px;">
 
 	    <?php
-		echo $this->Form->input('mimetype', array('type' => 'hidden'));
-		echo $this->Form->input('filesize', array('type' => 'hidden'));
+		/*echo $this->Form->input('mimetype', array('type' => 'hidden'));
+		echo $this->Form->input('filesize', array('type' => 'hidden'));*/
 		echo $this->Form->input('dir', array('type' => 'hidden'));
 	    
 	    

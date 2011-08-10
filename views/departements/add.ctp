@@ -1,5 +1,5 @@
  <h2>Ajouter un Département</h2>
-<hr/>
+
  <div style="margin:20px auto; width:550px;">
 <div class="departements form">
 <?php echo $this->Form->create('Departement');?>
@@ -8,18 +8,6 @@
 					array(
 		'div'=>'input long',
 		'label'=>'Nom',
-		
-		));
-		echo $this->Form->input('statut',
-					array(
-		'div'=>'input long',
-		'label'=>'Statut',
-		
-		));
-		echo $this->Form->input('grade',
-					array(
-		'div'=>'input long',
-		'label'=>'Grade',
 		
 		));
 	?>

@@ -1,8 +1,8 @@
 ﻿
-	<h1><?php __('Veuillez choisir un employé');
+	<h2><?php __('Veuillez choisir un employé');
 		//echo APP;
 		
-	?></h1>
+	?></h2>
 	<div class="actions">
 	<div class="bloc">
     <div class="title">

@@ -134,7 +134,7 @@ class Utilisateur extends AppModel {
 		'groupe_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Veuillez choisir un groupe',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

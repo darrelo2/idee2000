@@ -20,6 +20,7 @@ class DocumentsController extends AppController {
 	function index() {
 		$this->Document->recursive = 0;
 		$this->set('documents', $this->paginate('Document'));
+		$this->set('employes', $this->paginate('Employe'));
 	}
 
 	function view($id = null) {
@@ -117,6 +118,7 @@ class DocumentsController extends AppController {
 
 		
 	}
+	//Permet le telechargement d'un fichier sans devoiler l'emplacement de celui-ci aux utilisateurs
 	function telecharger($id = null) {
 		if (!$id) {
 			$this->Session->setFlash("Ce document n'existe pas", 'message_error');
@@ -159,6 +161,9 @@ class DocumentsController extends AppController {
 				break;
 			case 'mp3':
 				$mimeType =array('mp3' => 'audio/mpeg');
+				break;
+			case 'mp4':
+				$mimeType =array('mp4' => 'video/mpeg');
 				break;
 			case 'txt':
 				$mimeType =array('txt' => 'text/plain');

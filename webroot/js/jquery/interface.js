@@ -88,6 +88,13 @@
                     return false;
                 });
 	
+	//Systeme info bulle
+	
+		
+	$("a").tinyTips('title');
+	
+	
+	
 } );
 
 

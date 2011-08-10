@@ -34,7 +34,7 @@ class MeioUploadBehavior extends ModelBehavior {
 		'maxSize' => 2097152, // 2MB
 		'allowedMime' => array('image/jpeg', 'image/pjpeg', 'image/png', 'image/gif', 'image/bmp', 'image/x-icon', 'image/vnd.microsoft.icon'),
 		'allowedExt' => array('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.ico'),
-		'default' => false, // Not sure what this does
+		'default' => true, // Not sure what this does
 		'zoomCrop' => false, // Whether to use ZoomCrop or not with PHPThumb
 		'thumbnails' => true,
 		'thumbsizes' => array(
@@ -77,7 +77,7 @@ class MeioUploadBehavior extends ModelBehavior {
 		),
 		'Empty' => array(
 			'rule' => array('uploadCheckEmpty'),
-			'check' => true,
+			'check' => false,
 			'on' => 'create',
 			'last' => true
 		),
@@ -698,7 +698,8 @@ class MeioUploadBehavior extends ModelBehavior {
 			}
 			// If no file was selected we do not need to proceed
 			if (empty($data[$model->alias][$fieldName]['name'])) {
-				unset($data[$model->alias][$fieldName]);
+				//unset($data[$model->alias][$fieldName]);
+                                $data[$model->alias][$fieldName] = $options['default'];
 				$result = array('return' => true, 'data' => $data);
 				continue;
 			}

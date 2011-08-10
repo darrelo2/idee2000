@@ -9,32 +9,32 @@
 			<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/employes.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des employés',
 					array('controller'=>'employes', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>			<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/departements.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des Départements',
 					array('controller'=>'departements', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>			<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/users.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des utilisateurs',
 					array('controller'=>'utilisateurs', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>			<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/groups.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des groupes',
 					array('controller'=>'groupes', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>			<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/comments.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des commentaires',
 					array('controller'=>'commentaires', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/documents.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Liste des documents',
 					array('controller'=>'documents', 'action'=>'index'),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 			?>
 
@@ -121,37 +121,37 @@
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/font.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Typography',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>	
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/window.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Table',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>	
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/warning.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Notifications',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/posts.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Forms',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/chart.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Charts',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>
 	<?php echo $this->Html->link(
 					$this->Html->image('themeAdmin/icons/calendar.png', array('width'=>'48','height'=>'48','alt'=>'CakePHP', 'border' => '0')).'Calendar',
 					array('controller'=>'recettes', 'action'=>'supprimer', 6),
-					array('class'=>'shortcut','escape' => false)
+					array('class'=>'shortcut','escape' => false, "title"=>"")
 				);
 	?>
      
